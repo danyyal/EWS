@@ -1,0 +1,15 @@
+
+.adminButtons {
+    margin-top: 1rem !important;
+    background-color: rgb(199, 211, 32)!important;
+    width: 11rem;
+    color:black !important;
+    font-size: 1rem;
+    font-weight: bold !important;
+}
+
+.adminButtons:hover {
+    background-color: rgb(217, 228, 70)!important;
+    transition: 0.2s ease-in-out !important;
+    transform: scale(1.1);
+}

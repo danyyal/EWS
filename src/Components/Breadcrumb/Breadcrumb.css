@@ -1,0 +1,16 @@
+.alignBread{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right:5rem;
+    background-color:transparent;
+    height:30px;    
+    position:sticky;
+    top:4.5rem;
+} 
+.breadLink{
+    text-decoration: none !important;
+    color:black !important;
+    cursor: pointer;
+    font-weight: 500;
+}

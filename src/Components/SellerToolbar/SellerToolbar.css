@@ -1,0 +1,24 @@
+/* .SellerNav{
+    display: inline-block;
+    width:100%;
+    background-color: #B1A03D ;
+    border-bottom: 2px solid black;
+    height: auto;
+    padding:0 10px;
+    margin-top: -0.2rem;
+
+}
+
+.sellerStyle{
+    background-color: #B1A03D !important;
+  color: white;
+  text-align: center;
+  transition: 0.3s;
+  text-decoration: none;
+
+}
+.SellerNav nav{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 7.5%;
+} */

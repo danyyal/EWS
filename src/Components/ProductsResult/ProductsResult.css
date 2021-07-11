@@ -1,0 +1,34 @@
+.products {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.formSelector {
+    float: right !important;
+    margin-right: 2rem !important;
+    width: 12rem !important;
+    font-family: cursive;
+    background-color: burlywood;
+}
+
+.AlignAbout .formRow {
+    background-color: rgb(29, 25, 25);
+}
+
+.noProduct {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    background-color: burlywood;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+.noProduct:hover {
+    transition: 0.2s ease-in;
+    background-color: rgb(233, 183, 113);
+}

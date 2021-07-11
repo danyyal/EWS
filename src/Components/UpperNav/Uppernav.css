@@ -1,0 +1,33 @@
+.alignSpace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0rem;
+  margin: auto 0;
+}
+.UpperNavBg {
+  border-top: 3px solid transparent;
+  background-color: #9b8508c7 !important;
+  height:4.5rem;
+}
+.title {
+  color: white;
+  padding-left:5.5rem;
+}
+.log {
+  color: white !important;
+}
+.sider{
+  padding-right: 1.5rem;
+}
+@media screen and (max-width:600px){
+    .title{
+      display: none;
+    }
+    nav div{
+      margin-left: auto;
+    }
+} 
+.UpperNavFlex{
+  display: flex;
+}

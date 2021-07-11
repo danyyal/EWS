@@ -1,0 +1,7 @@
+.orderDetail {
+    border: 2px solid black;
+}
+
+.orderDetailHeadCell {
+    text-align: center !important;
+}

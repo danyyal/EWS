@@ -1,0 +1,13 @@
+.head{
+    text-align: center;
+    margin:2rem auto;
+    color:darkslategray;
+}
+.linkStyle{
+    text-decoration: none;
+    color:white;
+}
+.H_root{
+    /* padding:0 2rem;  */
+    overflow-x: hidden;
+}

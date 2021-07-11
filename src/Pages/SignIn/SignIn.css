@@ -1,0 +1,27 @@
+.form {
+      width: 90%;
+      margin-top: 1rem;
+    }
+.SignInButton{
+    margin:1rem auto !important;
+    background-color:rgb(35, 184, 35)!important;
+    color:white !important;
+}
+.linkContainer{
+    margin-bottom: 1.5rem;
+}
+.signInLink{
+    text-decoration: none;
+    color:rgb(28, 30, 168);
+    font-size: 1rem;
+}
+.signInLink2{
+    color:gray;
+    font-size: 0.8rem;
+    text-decoration: none;
+}
+.googleBtn{
+    background-color:crimson !important;
+    color:white !important;
+    margin-top:1rem;
+}

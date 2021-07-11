@@ -1,0 +1,127 @@
+body {
+    overflow-x: hidden;
+}
+
+.cartBtn {
+    background-color:rgb(58, 151, 39)!important;
+    color:  white !important;
+    font-weight: 600 !important;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 1rem 0 !important;
+    width: 12rem !important;
+    border-radius: 3rem !important;
+}
+.cartBtn:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease-in-out;
+
+    
+    /* background-color: rgb(182, 116, 30) !important;
+    color:white !important; */
+}
+
+.cartItem {
+    text-transform: uppercase;
+    padding: 2rem;
+    min-width: 10rem;
+}
+
+.cartItem img {
+    width: 9rem;
+    height: 8.5rem;
+}
+
+.cartItem h4 {
+    font-size: large;
+}
+
+.AlignAbout {
+    text-align: center;
+}
+
+.itemQuanBtn {
+    cursor: pointer;
+    font-size: 2rem !important;
+}
+
+.cartPageQuantity {
+    font-size: 1.5rem;
+}
+
+
+.userSelect {
+    user-select: none;
+}
+
+.cartTable {
+    margin-top: 1rem;
+}
+
+.cartBtn {
+    width: 12rem;
+}
+
+.cartPrice {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: burlywood;
+    padding: 0.5rem 1.5rem;
+}
+
+
+
+.cartTable {
+    margin-top: 1rem;
+    box-sizing: content-box;
+}
+
+.cartIFont {
+    font-weight: 500;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.emptyCart {
+    background-color: transparent;
+    width: 34rem;
+    height: 26rem;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:1050px)and (min-width:831px) {
+    .cartItem {
+        min-width: 10rem !important;
+        padding: 0 !important;
+    }
+    .emptyCart {
+        width: 25rem;
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width:830px) {
+    .cartItem {
+        min-width: 7rem !important;
+        padding: 0 !important;
+    }
+    .cartItem img {
+        width: 5rem;
+        height: 5rem;
+    }
+    .cartIFont {
+        font-weight: 500;
+        font-size: 0.9rem;
+    }
+    .itemQuanBtn {
+        font-size: 1.3rem !important;
+    }
+    .cartPageQuantity {
+        font-size: 1.1rem;
+    }
+    .emptyCart {
+        width: 20rem;
+        height: 18rem;
+    }
+}

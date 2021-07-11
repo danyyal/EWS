@@ -1,0 +1,51 @@
+.sellercontrolPanel {
+    border-top: 0.1rem solid black;
+    border-bottom: 0.1rem solid black;
+    margin-top: 4.5rem;
+    height: auto;
+    display: flex;
+}
+
+.sellerLayout {
+    margin-top: 4rem;
+}
+
+.sellersidebar {
+    width: 20%;
+}
+
+ul li a {
+    text-decoration: none !important;
+    color: black;
+}
+
+.sellersignOut:hover,
+ul li a:hover {
+    cursor: pointer !important;
+    color: rgb(38, 110, 103) !important;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+@media screen and (max-width:1100px)and (min-width:650) {
+    .sellersidebar {
+        width: 30%;
+    }
+    .sellerContent {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:649px) {
+    .sellersidebar {
+        width: 35%;
+    }
+    .sellerContent {
+        width: 65%;
+    }
+}
+
+.sellerContent {
+    text-align: center;
+    width: 75%;
+}

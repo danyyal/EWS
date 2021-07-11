@@ -1,0 +1,75 @@
+.checkoutHeading {
+    text-align: center !important;
+    background-color: rgb(255, 242, 200);
+    width: 100%;
+    font-size: x-large !important;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.checkoutHeading:hover {
+    transition: 1s all;
+    background-color: rgb(126, 124, 18);
+    color: white;
+}
+
+.paper {
+    margin-top: 3rem;
+    width: 90%;
+}
+
+.checkoutForm {
+    background-color: #FAFAFA;
+}
+
+.checkReview {
+    margin-top: 3rem;
+    border-top: 0.8rem solid black;
+}
+
+@media screen and (max-width:970px) {
+    .paper {
+        width: 100%;
+    }
+}
+
+.placeOrderBtn {
+    width: 100%;
+    background-color: rgb(19, 151, 19) !important;
+    color: white !important;
+    border-radius: 20px !important;
+    margin: 2rem auto !important;
+}
+
+
+
+/* for review.js */
+
+.orderReviewItems{
+text-align: center;
+background-color: rgb(248, 229, 206);
+}
+
+.reviewPrice{
+    font-style: italic;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: rgb(241, 216, 182);
+    padding: 0.5rem 1.5rem;
+    margin-top:2rem !important;
+}
+
+.review{
+    text-align: center !important;
+    background-color: rgb(255, 242, 200);
+    width: 100%;
+    font-size: x-large !important;
+    font-style: italic;
+    font-weight: bold !important;
+    margin-top: 2rem !important;
+}
+.review:hover{
+    transition: 1s all;
+    background-color: brown;
+    color: white;
+}

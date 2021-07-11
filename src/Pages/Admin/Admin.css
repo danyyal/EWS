@@ -1,0 +1,9 @@
+.table{
+    min-width: 750;
+    margin-left: 2rem;
+}
+
+.buyerPaper{
+    margin-left: 2rem;
+    background-color: rgb(245, 230, 164) !important;
+}

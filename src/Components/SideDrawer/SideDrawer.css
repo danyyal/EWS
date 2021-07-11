@@ -1,0 +1,16 @@
+
+/*  
+  .drawer{
+    width: 350px;
+    flex-shrink: 0;
+  }
+  .drawerPaper{
+    width: 350px;
+  } */
+
+.MuiDrawer-paper 
+{
+width:15rem ;
+margin-top: 4.5rem;
+
+}

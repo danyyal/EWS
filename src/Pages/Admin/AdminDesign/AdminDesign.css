@@ -1,0 +1,22 @@
+/* .dashboardProductButton {
+    margin-top: 2rem !important;
+    background-color: rgb(141, 118, 16)!important;
+    width: 12rem;
+    color: white !important;
+}
+
+.dashboardProductButton:hover {
+    background-color: rgb(146, 125, 7)!important;
+    transition: 0.2s ease-in-out !important;
+} */
+.adminHeading {
+    text-align: center !important;
+    background-color: rgb(243, 207, 87);
+    width: 100%;
+    font-size: 2rem !important;
+    font-style: italic;
+    font-weight: bolder !important;
+    margin-top: 2rem  !important;
+    width:100%;
+}
+

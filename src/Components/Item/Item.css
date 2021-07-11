@@ -1,0 +1,64 @@
+
+.rootP{
+    min-width: 27rem;
+    max-width: 27rem;
+    margin: 1rem 1rem ;
+}
+.IFont{
+    font-weight: 500;
+    font-size: 1.2rem;
+    margin-right: 8rem;
+    text-transform: capitalize;
+}
+.cardLink{
+    text-decoration: none;
+    color:black;
+}
+.linkItem{
+    text-decoration: none;
+    color:white;
+}
+.card_align{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.icon{
+    font-size: 2rem;
+    color:orangered;
+    margin-right: 1rem;
+}
+.icon:hover{
+    transform: scale(1.1);
+}
+.button{
+    background-color:orangered !important;
+    margin-bottom: 2rem;
+}
+.button:hover{
+    background-color: orangered;
+    color:white;
+    transform: scale(1.2);
+}
+
+.stock{
+    color:rgb(207, 161, 9);
+    font-size: 1rem;
+    font-weight: bold;
+    font-style: italic;
+}
+.notInStock{
+    color:red;
+    font-style: italic;
+
+}
+
+.rating{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+/* .cardName{
+
+} */
