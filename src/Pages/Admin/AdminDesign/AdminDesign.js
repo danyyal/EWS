@@ -1,10 +1,10 @@
-import React,{useState} from 'react';
-import {  useHistory } from 'react-router-dom'
-import { useDispatch ,useSelector} from 'react-redux';
-import { CKEditor } from 'ckeditor4-react';
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import CKEditor from 'ckeditor4-react';
 
 // @material ui core
-import { Grid,Typography,Button,TextField} from '@material-ui/core';
+import { Grid, Typography, Button, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
 // product actions
@@ -12,36 +12,37 @@ import { addProductStart } from '../../../Redux/Products/Products.actions';
 
 // components
 import Modal from '../../../Components/Modal/Modal';
-import  {categories}  from '../../Seller/Categories';
+import { categories } from '../../Seller/Categories';
 import FormSelect from '../../../Components/FormSelect/FormSelect';
 import './AdminDesign.css';
 
 
 
-const mapState=(state)=>({
-  currentUser:state.user.currentUser
+const mapState = (state) => ({
+  currentUser: state.user.currentUser
 })
 
-const AdminDesign = ({heading}) => {
-  const {currentUser} = useSelector(mapState);
+const AdminDesign = ({ heading }) => {
+  const { currentUser } = useSelector(mapState);
   const [hideModal, setHideModal] = useState(true);
-
+  const [categoryModal, setCategoryModal] = useState(false);
+  const [productModal, setProductModal] = useState(false);
   const [productCategory, setProductCategory] = useState('men');
   const [productName, setProductName] = useState('');
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
   const [stock, setStock] = useState(0);
   const [productDesc, setProductDesc] = useState('');
-  const history= useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
-  const{displayName}=currentUser;
+  const { displayName } = currentUser;
 
   const toggleModal = () => setHideModal(!hideModal);
-  
-const configModal = {
-  hideModal,
-  toggleModal
-};
+
+  const configModal = {
+    hideModal,
+    toggleModal
+  };
 
 
   const resetForm = () => {
@@ -54,7 +55,7 @@ const configModal = {
     setProductDesc('');
   };
 
-  const handleSubmit = e => {
+  const handleSubmitProduct = e => {
     e.preventDefault();
 
     if (productPrice > 0) {
@@ -74,71 +75,90 @@ const configModal = {
 
   };
 
+  const handleSubmitCategory = e => {
+    console.log("handle add category needs to be completed yet")
+    // e.preventDefault();
+
+    // if (productPrice > 0) {
+    //   dispatch(
+    //     addProductStart({
+    //       productCategory,
+    //       productName,
+    //       productThumbnail,
+    //       productPrice,
+    //       productDesc,
+    //       stock,
+    //       displayName
+    //     })
+    //   );
+    //   resetForm();
+    // }
+
+  };
+
   return (
     <div className="seller">
       <Typography className="adminHeading" align='left' variant="h6" gutterBottom>
         Admin Pannel
       </Typography>
       <div className="callToActions">
-        
-      <Grid className="sellerDesignButtonContainer" container spacing={3} >
+
+        <Grid className="sellerDesignButtonContainer" container spacing={3} >
           <Grid item md={4} >
-            <Button className="adminDashboardButton" onClick={() => toggleModal()}>
-           <AddIcon/> Add Category
+            <Button className="adminDashboardButton" onClick={() => {
+              setCategoryModal(true)
+              setProductModal(false)
+              toggleModal()}}>
+              <AddIcon /> Add Category
             </Button>
           </Grid>
           <Grid item md={4}  >
             <Button className="adminDashboardButton" >
-              <AddIcon/>Add User
+              <AddIcon />Add User
             </Button>
           </Grid>
           <Grid item md={4}  >
-            <Button className="adminDashboardButton" onClick={() => toggleModal()}  >
-              <AddIcon/>Add Product
+            <Button className="adminDashboardButton" onClick={() => {
+              setCategoryModal(false)
+              setProductModal(true)
+              toggleModal()}}>
+              <AddIcon />Add Product
             </Button>
           </Grid>
         </Grid>
-        
 
         <Grid container align='left' className='manageProducts' spacing={4}>
-        <Grid item xs >
-        {(() => {
-  
-  switch (heading) {
-     case 'Manage Seller':
-         return (
-           <h1>{heading}</h1>
-         )
-     case 'Manage Buyer':
-         return (
-           <h1>{heading}</h1>
-         )
-        case 'Generate Report':
-          return(
-            <h1>{heading}</h1>
-          )
-        
-     default:
-         return (
-           <h1>Manage Products</h1>
-         )
-  }
+          <Grid item xs >
+            {(() => {
 
-})()}
+              switch (heading) {
+                case 'Manage Seller':
+                  return (
+                    <h1>{heading}</h1>
+                  )
+                case 'Manage Buyer':
+                  return (
+                    <h1>{heading}</h1>
+                  )
+                case 'Generate Report':
+                  return (
+                    <h1>{heading}</h1>
+                  )
 
+                default:
+                  return (
+                    <h1>Manage Products</h1>
+                  )
+              }
+            })()}
+          </Grid>
         </Grid>
-      </Grid>
-
-
-
-     
-
       </div>
 
 
-      <Modal {...configModal}>
+      { productModal && <Modal {...configModal}>
         <div className="addNewProductForm">
-          <form className='productForm' onSubmit={handleSubmit}>
+          <form className='productForm' onSubmit={handleSubmitProduct}>
 
             <h2 className="modalHeading">
               Add new product
@@ -212,13 +232,11 @@ const configModal = {
 
           </form>
         </div>
-      </Modal>
+      </Modal> }
 
-
-
-      <Modal {...configModal}>
+      { categoryModal && <Modal {...configModal}>
         <div className="addNewProductForm">
-          <form className='productForm' onSubmit={handleSubmit}>
+          <form className='productForm' onSubmit={handleSubmitCategory}>
             <h2 className="modalHeading">
               Add new Category
             </h2>
@@ -243,9 +261,9 @@ const configModal = {
             </Button>
           </form>
         </div>
-      </Modal>
+      </Modal> }
 
-      
+
     </div>
   );
 }
