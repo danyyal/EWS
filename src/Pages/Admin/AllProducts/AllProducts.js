@@ -1,11 +1,9 @@
-import React, {useState ,useEffect } from 'react';
+import React, {useEffect } from 'react';
 import { fetchProductsStart, deleteProductStart } from '../../../Redux/Products/Products.actions';
-import { auth } from '../../../Firebase/utils'
-import { Grid, Button,TextField } from '@material-ui/core';
+import { Grid,Tooltip } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadMore from '../../../Components/LoadMore/LoadMore';
-
-// import FormSelect from '../../../Components/FormSelect/FormSelect';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const mapState = ({ productsData }) => ({
   products: productsData.products
@@ -60,14 +58,18 @@ const AllProducts = () => {
           } = product;
           return (
             <Grid container className="containerClass" direction='row' alignItems='center' justify='space-around' spacing={2}>
-              <Grid item xs={12} md><img className='thumb' src={productThumbnail} /></Grid>
-              <Grid item xs={6} md={3} className='itemFont'>{productName}</Grid>
-              <Grid item xs={6} md={3} className='itemFont'>RS.{productPrice}</Grid>
-              <Grid item xs={6} md={3} className='itemFont'>Stock{stock?(<span>({stock})</span>):(<span>(0)</span>)}</Grid>
+              <Grid item xs={12} md={2}><img className='thumb' src={productThumbnail} /></Grid>
+              <Grid item xs={3} md={3} className='itemFont'>{productName}</Grid>
+              <Grid item xs={3} md={2} className='itemFont'>RS.{productPrice}</Grid>
+              <Grid item xs={3} md={2} className='itemFont'>Stock{stock?(<span>({stock})</span>):(<span>(0)</span>)}</Grid>
               
-              <Grid item xs={6} md={3} className='deleteBtn'>
-                <Button onClick={() => dispatch(deleteProductStart(documentID))}>Delete</Button>
-                
+              <Grid item  md={3}>
+              <Tooltip title='Delete'>
+             < DeleteIcon 
+              className='sellerProductIcons' 
+               onClick={() => dispatch(deleteProductStart(documentID))}
+            /> 
+            </Tooltip>
               </Grid>
             </Grid>
             

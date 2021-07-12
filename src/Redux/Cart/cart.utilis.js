@@ -4,7 +4,7 @@ export const existingCartItem = ({ prevCartItem, nextCartItem }) => {
     return prevCartItem.find(cartItems => cartItems.documentID === nextCartItem.documentID);
 }
 
-export const handleAddCart = ({prevCartItem, nextCartItem }) => {
+export const handleAddCart = ({prevCartItem, nextCartItem ,uid}) => {
     const quantityINC = 1;
     const itemExists = existingCartItem({ prevCartItem, nextCartItem });
     
@@ -14,6 +14,7 @@ export const handleAddCart = ({prevCartItem, nextCartItem }) => {
             {
                 ...cartItem,
                 quantity: cartItem.quantity + quantityINC,
+                userID:uid,
                 
             } : cartItem,
         );
@@ -24,6 +25,7 @@ export const handleAddCart = ({prevCartItem, nextCartItem }) => {
         {
             ...nextCartItem,
             quantity: quantityINC,
+            userID:uid,
 
         }
     ]

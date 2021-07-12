@@ -48,7 +48,7 @@ const Item = (product) => {
             <CardMedia
               component="img"
               alt="ERR"
-              height="200px"
+              height="160px"
               image={productThumbnail}
             />
           </Link>

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 // hoc
 import WithAuth from './hoc/WithAuth';
 import WithSellerAuth from './hoc/WithSellerAuth';
+import WithAdminAuth from "./hoc/WithAdminAuth";
 // pages
 import Search from './Pages/Search/Search';
 import SignIn from './Pages/SignIn/SignIn';
@@ -138,16 +139,16 @@ const App = props => {
 
 
 
-<Route exact path='/Admin' render={() => (
-          <WithSellerAuth>
+<Route exact path='/Admin' component={() => (
+          <WithAdminAuth>
             <AdminLayout>
               <Admin/>
             </AdminLayout>
-          </WithSellerAuth>
+          </WithAdminAuth>
         )} /> 
 
 
-<Route exact path='/manageSeller' render={() => (
+<Route exact path='/Admin/manageSeller' render={() => (
           <WithSellerAuth>
             <AdminLayout>
               <Sellers/>
@@ -156,7 +157,7 @@ const App = props => {
         )} /> 
 
 
-<Route exact path='/manageBuyer' render={() => (
+<Route exact path='/Admin/manageBuyer' render={() => (
           <WithSellerAuth>
             <AdminLayout>
               <Buyers/>
@@ -165,7 +166,7 @@ const App = props => {
         )} /> 
 
 
-<Route exact path='/ReportGenerator' render={() => (
+<Route exact path='/Admin/ReportGenerator' render={() => (
           <WithSellerAuth>
             <AdminLayout>
               <ReportGenerator/>

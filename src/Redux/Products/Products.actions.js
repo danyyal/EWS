@@ -30,7 +30,7 @@ export const setProduct = product => ({
     payload: product
 });
 
-export const updateProduct = product => ({
+export const updateProduct = (product) => ({
     type: ProductsTypes.UPDATE_PRODUCT,
     payload: product
 });

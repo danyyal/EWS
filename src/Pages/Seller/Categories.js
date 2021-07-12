@@ -1,4 +1,4 @@
-export const Categories =
+export const categories =
 [{
         value: "men",
         name: "Men"

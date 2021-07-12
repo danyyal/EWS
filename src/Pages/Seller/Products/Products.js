@@ -1,15 +1,17 @@
 import React, {useState ,useEffect } from 'react';
 import { fetchProductsStart, deleteProductStart,updateProduct } from '../../../Redux/Products/Products.actions';
 import { auth } from '../../../Firebase/utils'
-import { Grid, Button,TextField } from '@material-ui/core';
+import { Grid, Button,TextField,Tooltip } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadMore from '../../../Components/LoadMore/LoadMore';
 import SellerDesign from '../SellerDesign';
 import Modal from '../../../Components/Modal/Modal';
 import './Products.css';
 import CKEditor from 'ckeditor4-react';
-import { Categories } from '../Categories';
+import { categories } from '../Categories';
 import FormSelect from '../../../Components/FormSelect/FormSelect';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const mapState = ({ productsData}) => ({
   products: productsData.products
@@ -24,10 +26,11 @@ const Products = () => {
   const [productPrice, setProductPrice] = useState(0);
   const [stock, setStock] = useState(0);
   const [productDesc, setProductDesc] = useState('');
-
+  const [documentID, setdocumentID] = useState('');
   const { products } = useSelector(mapState);
   const dispatch = useDispatch();
   const { data, queryDoc, isLastPage } = products;
+
 
   const toggleModal = () => setHideModal(!hideModal);
 
@@ -49,16 +52,17 @@ const Products = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-      dispatch(
-        updateProduct({
-          productCategory,
-          productName,
-          productThumbnail,
-          productPrice,
-          productDesc,
-          stock
-        })
-      );
+    dispatch(
+      updateProduct({
+        documentID,
+        productName,
+        productThumbnail,
+        productPrice,
+       productCategory, 
+       productDesc, 
+       stock
+      })
+    );
       resetForm();
   };
 
@@ -94,7 +98,8 @@ const Products = () => {
       setProductPrice(productPrice);
       setStock(stock);
       setProductDesc(productDesc);
-    }
+      setdocumentID(documentID);
+         }
 
 
   return (
@@ -114,17 +119,26 @@ const Products = () => {
           } = product;
           return (
             <Grid container className="containerClass" direction='row' alignItems='center' justify='space-around' spacing={2}>
-              <Grid item xs={12} md><img className='thumb' src={productThumbnail} /></Grid>
-              <Grid item xs={6} md={3} className='itemFont'>{productName}</Grid>
-              <Grid item xs={6} md={3} className='itemFont'>RS.{productPrice}</Grid>
-              <Grid item xs={6} md={3} className='itemFont'>quantity
+              <Grid item xs={12} md={2}><img className='thumb' src={productThumbnail} /></Grid>
+              <Grid item xs={4} md={3} className='itemFont'>{productName}</Grid>
+              <Grid item xs={4} md={2} className='itemFont'>RS.{productPrice}</Grid>
+              <Grid item xs={4} md={2} className='itemFont'>quantity
               {stock?(<span>({stock})</span>):(<span>(0)</span>)}</Grid>
-              <Grid item xs={6} md={3} className='deleteBtn'>
-                <Button onClick={() => dispatch(deleteProductStart(documentID))}>Delete</Button>
+              <Grid item  md={1} >
+              <Tooltip title='Delete'>
+             < DeleteIcon 
+              className='sellerProductIcons' 
+               onClick={() => dispatch(deleteProductStart(documentID))}
+            />  
+            </Tooltip>
               </Grid>
-              <Grid item xs={6} md={3} className='deleteBtn'>
-              <Button onClick={() => handleUpdation({   productName, productThumbnail, productPrice,
-            documentID, productCategory, productDesc, stock})}>Update</Button>
+              <Grid item  md={1}>
+              <Tooltip title='Update Product'>
+              <EditIcon className='sellerProductIcons'
+               onClick={() => handleUpdation({ productName, productThumbnail, productPrice,
+                documentID, productCategory, productDesc, stock})}
+              />
+              </Tooltip>
               </Grid>
             </Grid>
             
@@ -141,7 +155,7 @@ const Products = () => {
 
             <FormSelect
               label="Category"
-              options={Categories}
+              options={categories}
               onChange={e => setProductCategory(e.target.value)}
             />
 

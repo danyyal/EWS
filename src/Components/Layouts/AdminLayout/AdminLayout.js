@@ -25,18 +25,18 @@ const history= useHistory();
           <VerticalNav>
             <ul>
               <li>
-              <Button  className='adminButtons' onClick={()=>history.push('/admin')}>
+              <Button  className='adminButtons' onClick={()=>history.push('/Admin')}>
               Home
             </Button>
                 
               </li>
               <li>
-              <Button className='adminButtons' onClick={()=>history.push('/manageSeller')}  >
+              <Button className='adminButtons' onClick={()=>history.push('/Admin/manageSeller')}  >
               Manage Seller
             </Button>
             </li>
         <li>
-        <Button className='adminButtons' onClick={()=>history.push('/manageBuyer')}>
+        <Button className='adminButtons' onClick={()=>history.push('/Admin/manageBuyer')}>
               Manage Buyers
             </Button>
         </li>
@@ -48,10 +48,12 @@ const history= useHistory();
             
             </li>
             <li>
-            <Button className='adminButtons'  onClick={()=>history.push('/ReportGenerator')}>
+            <Button className='adminButtons'  onClick={()=>history.push('/Admin/ReportGenerator')}>
               Report
             </Button>
               </li>
+            
+
               <li>
               <Button  className='adminButtons' onClick={() => signOut()}>
               SignOut

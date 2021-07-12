@@ -12,7 +12,7 @@ const mapState = ({ user, orderData }) => ({
 const SellerOrder = () => {
   const dispatch = useDispatch();
   const { currentUser, orderHistory } = useSelector(mapState)
-  console.log("This is the order history we got from the api hit made to the firebase ", orderHistory)
+  // console.log("This is the order history we got from the api hit made to the firebase ", orderHistory)
   useEffect(() => {
     dispatch(getSellerOrderHistory(currentUser.id))
   }, [])

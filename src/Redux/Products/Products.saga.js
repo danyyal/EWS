@@ -14,7 +14,7 @@ export function* addProducts({ payload }) {
             productSellerUID: auth.currentUser.uid,
             createdDate: timestamp
         })
-    // console.log(auth.currentUser.displayName);
+  
         yield put(
             fetchProductsStart()
         )
@@ -86,14 +86,14 @@ export function* onFetchProductStart() {
 
 
 
-export function* updateProduct({ payload }) {
+export function* updateProduct(payload) {
     try {
         const timestamp = new Date();
-    const product= yield handleUpdateProduct({
+     yield handleUpdateProduct({
             ...payload,
             createdDate: timestamp
         })
-        yield put(setProduct(product));
+        // yield put(setProduct(product));
     }
     catch (err) {
         // console.log(err);

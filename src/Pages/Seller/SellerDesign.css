@@ -59,19 +59,25 @@
 }
 
 .deleteBtn Button {
-    background-color: crimson;
+    background-color: green;
     color: white;
     font-weight: 300;
     font-size: 0.8rem;
+    /* border-radius: 50px; */
     border-radius: 0 10px 0 10px;
     padding: 0.5rem 2rem;
+    width:9rem;
+}
+.sellerProductIcons{
+    color:crimson;
+    font-size: 1.6rem !important;
 }
 
 .deleteBtn Button:hover {
-    background-color: rgb(226, 71, 102);
-    color: white;
+    background-color:rgb(13, 116, 39);
+    /* border-radius: 50px; */
     border-radius: 10px 0 10px 0;
-    border: 2px solid brown;
+    transition: 0.3s ease-in-out;
 }
 
 .containerClass {

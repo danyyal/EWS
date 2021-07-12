@@ -17,7 +17,8 @@ const PorductCard = ({ }) => {
     const { productID } = useParams();
     const history = useHistory();
     const { product, currentUser } = useSelector(mapState);
-    const { productName, productThumbnail, productPrice, productDesc ,stock} = product;
+    const{uid}=currentUser;
+    const { productName, productThumbnail, productPrice, productDesc ,stock,displayName} = product;
     
     useEffect(() => {
         dispatch(fetchProductStart(productID));
@@ -29,7 +30,7 @@ const PorductCard = ({ }) => {
     const handleAddToCart = (product) => {
         // const {uid} =currentUser;
         if (!product) return;
-        if (currentUser) return dispatch(addProduct(product));
+        if (currentUser) return dispatch(addProduct({product,uid}));
         else return history.push('/SignIn');
     }
 
@@ -59,6 +60,10 @@ const PorductCard = ({ }) => {
                             <td className="productItems">{productPrice}</td>
                         </tr>
                         <tr>
+                            <th className="productItems">Shipped By</th>
+                            <td className="productItems">{displayName}</td>
+                        </tr>
+                        <tr>
                             <th className="productItems">Stock Remaining</th>
                             <td className="productItems">{stock ? stock : "null"}</td>
                         </tr>
@@ -67,11 +72,6 @@ const PorductCard = ({ }) => {
                         <td className="productItems"><Rating/> </td>
                         </tr>
 
-                        {/* <tr>
-                        <th className="productItems">Shipping By</th>
-                        <td className="productItems">{displayName}</td>
-                        </tr>
-                        */}
                         <tr>
                             <th className="productItems">Decription</th>
                             <td className="productItems"><span className="descriptionWrap" dangerouslySetInnerHTML={{ __html: productDesc ? productDesc : "Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null " }} /></td>

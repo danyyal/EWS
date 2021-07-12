@@ -11,7 +11,7 @@ import FormSelect from '../../Components/FormSelect/FormSelect';
 import Modal from '../../Components/Modal/Modal';
 
 import './SellerDesign.css';
-import { Categories } from './Categories';
+import { categories } from './Categories';
 
 const mapState=(state)=>({
   currentUser:state.user.currentUser
@@ -22,7 +22,7 @@ const SellerDesign = ({ heading }) => {
   const dispatch = useDispatch();
   const {currentUser} = useSelector(mapState);
   const [hideModal, setHideModal] = useState(true);
-  const [productCategory, setProductCategory] = useState('mens');
+  const [productCategory, setProductCategory] = useState('men');
   const [productName, setProductName] = useState('');
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
@@ -40,7 +40,7 @@ const SellerDesign = ({ heading }) => {
 
   const resetForm = () => {
     setHideModal(true);
-    setProductCategory('mens');
+    setProductCategory('men');
     setProductName('');
     setProductThumbnail('');
     setProductPrice(0);
@@ -107,7 +107,7 @@ const SellerDesign = ({ heading }) => {
 
             <FormSelect
               label="Category"
-              options={Categories}
+              options={categories}
               onChange={e => setProductCategory(e.target.value)}
             />
 
