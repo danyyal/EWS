@@ -28,6 +28,7 @@ export const handleAddWishlist = ({ prevWishItem, nextWishItem }) => {
 }
 
 export const handleRemoveWishItem = ({ prevWishItem, removeWishItem }) => {
+    ToastsStore.success("Removed from Wishlist")
     return prevWishItem.filter(item => item.documentID !== removeWishItem.documentID);
 
 }

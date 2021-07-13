@@ -4,7 +4,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { useDispatch } from 'react-redux';
 import { removeWishItem } from '../../../Redux/Wishlist/wishlist.action'
 import { addProduct } from '../../../Redux/Cart/cart.actions';
-
+import { ToastsStore } from 'react-toasts'
 
 const WishItem = (product) => {
 
@@ -34,7 +34,7 @@ const WishItem = (product) => {
                 </td>:
                 <td className="wishListItem">
                     <Tooltip title='Not in stock yet' arrow>
-                 <Button className='cartBtn'>
+                 <Button onClick={()=> ToastsStore.warning("Cannot convert to cart")} className='cartBtn'>
                     Convert To Cart
                 </Button>
                     </Tooltip>
