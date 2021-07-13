@@ -31,7 +31,7 @@ const PorductCard = ({ }) => {
   const handleAddToCart = (product) => {
     // const {uid} =currentUser;
     if (!product) return;
-    if (currentUser) return dispatch(addProduct({ product, uid }));
+    if (currentUser) return dispatch(addProduct({product}));
     else return history.push('/SignIn');
   }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectCartItem, selectCartTotal } from '../../Redux/Cart/cart.selector';
-import {  createStructuredSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import { Grid, Button } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import './Cart.css';
 import CartItem from './CartItem/CartItem';
-import {ToastsStore} from 'react-toasts';
+import { ToastsStore } from 'react-toasts';
 
 const mapState = createStructuredSelector({
   cartItems: selectCartItem,
@@ -16,7 +16,7 @@ const mapState = createStructuredSelector({
 const Cart = ({ }) => {
   const { cartItems, total } = useSelector(mapState);
   const history = useHistory();
-  
+
   return (
     <div className='AlignAbout userSelect'>
       {cartItems.length > 0 ?
@@ -33,9 +33,8 @@ const Cart = ({ }) => {
             </table>
             <table>
               {cartItems.map((item, index) => {
-          
                 return (
-                  
+                  console.log(item),
                   <CartItem {...item} />
                 )
               })}
@@ -49,21 +48,13 @@ const Cart = ({ }) => {
               </Button>
             </Grid>
             <Grid item>
-            {/* {stock? 
-        <Button className='cartBtn' onClick={() => history.push('/Checkout')}>Checkout</Button>
-        : 
-                  <Tooltip title='Not in stock yet' arrow>
-         <Button className='cartBtn'>Checkout</Button>
-                    </Tooltip> 
-                }
-                */}
-                <Button className='cartBtn' onClick={() => history.push('/Checkout')}>Checkout</Button>
-            
+              <Button className='cartBtn' onClick={() => history.push('/Checkout')}>Checkout</Button>
+
             </Grid>
           </Grid>
         </Grid>
-        : <div  className="emptyCart" ><img className="emptyCart" src='/images/emptyCart.png' />
-                    {ToastsStore.warning("Your Cart is Empty")}
+        : <div className="emptyCart" ><img className="emptyCart" src='/images/emptyCart.png' />
+          {ToastsStore.warning("Your Cart is Empty")}
         </div>}
       {/* // <Checkout/> */}
     </div>

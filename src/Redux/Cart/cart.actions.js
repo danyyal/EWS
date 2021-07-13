@@ -1,8 +1,10 @@
 import cartTypes from './cart.types';
 
-export const addProduct =({uid,nextCartItem})=>({
+export const addProduct =(nextCartItem)=>(
+    console.log(nextCartItem),
+    {
     type:cartTypes.ADD_TO_CART,
-    payload:{uid,nextCartItem}
+    payload:nextCartItem
 });
 
 export const removeCartItem=(cartItem)=>({
