@@ -5,6 +5,7 @@ import { createSelectorCreator, createStructuredSelector } from 'reselect';
 import { Grid, Button } from '@material-ui/core';
 import WishItem from './WishItem/WishItem';
 import { useHistory } from 'react-router';
+import { ToastsStore } from 'react-toasts'
 import './Wishlist.css'
 
 const mapState = createStructuredSelector({
@@ -46,7 +47,10 @@ const Wishlist = ({ }) => {
 
           </Grid>
         </Grid>
-      ) : <img className="emptyWishlist" src='/images/emptyWishlist.png' />}
+      ) : <div>
+          <img className="emptyWishlist" src='/images/emptyWishlist.png' />
+          {ToastsStore.warning('Your Wishlist is Empty')}
+        </div>}
       {/* <Checkout/> */}
     </div>
   )

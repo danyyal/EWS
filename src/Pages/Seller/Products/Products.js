@@ -1,7 +1,7 @@
-import React, {useState ,useEffect } from 'react';
-import { fetchProductsStart, deleteProductStart,updateProduct } from '../../../Redux/Products/Products.actions';
+import React, { useState, useEffect } from 'react';
+import { fetchProductsStart, deleteProductStart, updateProduct } from '../../../Redux/Products/Products.actions';
 import { auth } from '../../../Firebase/utils'
-import { Grid, Button,TextField,Tooltip } from '@material-ui/core';
+import { Grid, Button, TextField, Tooltip } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
 import LoadMore from '../../../Components/LoadMore/LoadMore';
 import SellerDesign from '../SellerDesign';
@@ -13,7 +13,7 @@ import FormSelect from '../../../Components/FormSelect/FormSelect';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 
-const mapState = ({ productsData}) => ({
+const mapState = ({ productsData }) => ({
   products: productsData.products
 });
 
@@ -58,12 +58,12 @@ const Products = () => {
         productName,
         productThumbnail,
         productPrice,
-       productCategory, 
-       productDesc, 
-       stock
+        productCategory,
+        productDesc,
+        stock
       })
     );
-      resetForm();
+    resetForm();
   };
 
   useEffect(() => {
@@ -89,17 +89,17 @@ const Products = () => {
     onLoadMoreEvt: handleLoadMore,
   };
 
-  const handleUpdation=({    productName, productThumbnail,productPrice, documentID,
-    productCategory, productDesc, stock})=>{
-      toggleModal();
-      setProductCategory(productCategory);
-      setProductName(productName);
-      setProductThumbnail(productThumbnail);
-      setProductPrice(productPrice);
-      setStock(stock);
-      setProductDesc(productDesc);
-      setdocumentID(documentID);
-         }
+  const handleUpdation = ({ productName, productThumbnail, productPrice, documentID,
+    productCategory, productDesc, stock }) => {
+    toggleModal();
+    setProductCategory(productCategory);
+    setProductName(productName);
+    setProductThumbnail(productThumbnail);
+    setProductPrice(productPrice);
+    setStock(stock);
+    setProductDesc(productDesc);
+    setdocumentID(documentID);
+  }
 
 
   return (
@@ -117,31 +117,34 @@ const Products = () => {
             productDesc,
             stock
           } = product;
+          console.log("product from products.js-------",product)
           return (
             <Grid container className="containerClass" direction='row' alignItems='center' justify='space-around' spacing={2}>
               <Grid item xs={12} md={2}><img className='thumb' src={productThumbnail} /></Grid>
               <Grid item xs={4} md={3} className='itemFont'>{productName}</Grid>
               <Grid item xs={4} md={2} className='itemFont'>RS.{productPrice}</Grid>
               <Grid item xs={4} md={2} className='itemFont'>quantity
-              {stock?(<span>({stock})</span>):(<span>(0)</span>)}</Grid>
-              <Grid item  md={1} >
-              <Tooltip title='Delete'>
-             < DeleteIcon 
-              className='sellerProductIcons' 
-               onClick={() => dispatch(deleteProductStart(documentID))}
-            />  
-            </Tooltip>
+              {stock ? (<span>({stock})</span>) : (<span>(0)</span>)}</Grid>
+              <Grid item md={1} >
+                <Tooltip title='Delete'>
+                  < DeleteIcon
+                    className='sellerProductIcons'
+                    onClick={() => dispatch(deleteProductStart(documentID))}
+                  />
+                </Tooltip>
               </Grid>
-              <Grid item  md={1}>
-              <Tooltip title='Update Product'>
-              <EditIcon className='sellerProductIcons'
-               onClick={() => handleUpdation({ productName, productThumbnail, productPrice,
-                documentID, productCategory, productDesc, stock})}
-              />
-              </Tooltip>
+              <Grid item md={1}>
+                <Tooltip title='Update Product'>
+                  <EditIcon className='sellerProductIcons'
+                    onClick={() => handleUpdation({
+                      productName, productThumbnail, productPrice,
+                      documentID, productCategory, productDesc, stock
+                    })}
+                  />
+                </Tooltip>
               </Grid>
             </Grid>
-            
+
           )
         })}
       </Grid>
@@ -210,6 +213,7 @@ const Products = () => {
 
             <CKEditor
               required
+              value={productDesc}
               onChange={evt => setProductDesc(evt.editor.getData())}
             />
 

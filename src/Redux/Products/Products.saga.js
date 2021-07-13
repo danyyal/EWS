@@ -1,8 +1,7 @@
 import { takeLatest, all, call, put } from 'redux-saga/effects';
 import { auth } from '../../Firebase/utils'
 import ProductsTypes from './Products.types';
-import { handleAddProduct, handleFetchProduct, handleDeleteProduct, handleFetchSingleProduct,
-    handleUpdateProduct } from './Products.helper';
+import { handleAddProduct, handleFetchProduct, handleDeleteProduct, handleFetchSingleProduct, handleUpdateProduct } from './Products.helper';
 import { setProducts, fetchProductsStart, setProduct } from './Products.actions';
 
 
@@ -14,12 +13,11 @@ export function* addProducts({ payload }) {
             productSellerUID: auth.currentUser.uid,
             createdDate: timestamp
         })
-  
+
         yield put(
             fetchProductsStart()
         )
-    }
-    catch (err) {
+    } catch (err) {
         // console.log(err);
     }
 }
@@ -37,8 +35,7 @@ export function* fetchProducts({ payload }) {
 
         const products = yield handleFetchProduct(payload);
         yield put(setProducts(products));
-    }
-    catch (err) {
+    } catch (err) {
         // console.log(err);
     }
 }
@@ -56,8 +53,7 @@ export function* deleteProduct({ payload }) {
         yield put(
             fetchProductsStart()
         );
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
     }
 }
@@ -73,8 +69,7 @@ export function* fetchProduct({ payload }) {
     try {
         const product = yield handleFetchSingleProduct(payload);
         yield put(setProduct(product));
-    }
-    catch (err) {
+    } catch (err) {
         //  console.log(err);
     }
 }
@@ -86,16 +81,15 @@ export function* onFetchProductStart() {
 
 
 
-export function* updateProduct(payload) {
+export function* updateProduct({ payload }) {
     try {
         const timestamp = new Date();
-     yield handleUpdateProduct({
+        const product = yield handleUpdateProduct({
             ...payload,
-            createdDate: timestamp
+            updated_at: timestamp
         })
-        // yield put(setProduct(product));
-    }
-    catch (err) {
+        yield put(fetchProductsStart(auth.currentUser.uid));
+    } catch (err) {
         // console.log(err);
     }
 }

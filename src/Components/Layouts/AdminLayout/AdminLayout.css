@@ -1,9 +1,8 @@
-
 .adminButtons {
-    margin-top: 1rem !important;
-    background-color:lightgrey!important;
+    margin: 1rem 0rem !important;
+    background-color: lightgrey!important;
     width: 11rem;
-    color:#0f0f0fde !important;
+    color: #0f0f0fde !important;
     font-size: 1rem;
     font-weight: 600 !important;
     font-style: italic;
@@ -13,8 +12,8 @@
     /* background-color: rgba(214, 224, 73, 0.911)!important; */
     /* color:black !important; */
     background-color: black !important;
-    color: whitesmoke !important;;
+    color: whitesmoke !important;
     font-weight: bold;
     transition: 0.3s ease-in-out !important;
-    transform: scale(1.1);
+    transform: scale(1.2);
 }

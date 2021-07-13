@@ -149,29 +149,29 @@ const App = props => {
 
 
 <Route exact path='/Admin/manageSeller' render={() => (
-          <WithSellerAuth>
+          <WithAdminAuth>
             <AdminLayout>
               <Sellers/>
             </AdminLayout>
-          </WithSellerAuth>
+          </WithAdminAuth>
         )} /> 
 
 
 <Route exact path='/Admin/manageBuyer' render={() => (
-          <WithSellerAuth>
+          <WithAdminAuth>
             <AdminLayout>
               <Buyers/>
             </AdminLayout>
-          </WithSellerAuth>
+          </WithAdminAuth>
         )} /> 
 
 
 <Route exact path='/Admin/ReportGenerator' render={() => (
-          <WithSellerAuth>
+          <WithAdminAuth>
             <AdminLayout>
               <ReportGenerator/>
             </AdminLayout>
-          </WithSellerAuth>
+          </WithAdminAuth>
         )} /> 
 
 

@@ -127,10 +127,9 @@ const AdminDesign = ({ heading }) => {
           </Grid>
         </Grid>
 
-        <Grid container align='left' className='manageProducts' spacing={4}>
+        <Grid container align='center ' className='manageProducts' spacing={4}>
           <Grid item xs >
             {(() => {
-
               switch (heading) {
                 case 'Manage Seller':
                   return (

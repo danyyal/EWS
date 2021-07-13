@@ -66,15 +66,17 @@
     /* border-radius: 50px; */
     border-radius: 0 10px 0 10px;
     padding: 0.5rem 2rem;
-    width:9rem;
+    width: 9rem;
 }
-.sellerProductIcons{
-    color:crimson;
+
+.sellerProductIcons {
+    color: crimson;
     font-size: 1.6rem !important;
+    cursor: pointer;
 }
 
 .deleteBtn Button:hover {
-    background-color:rgb(13, 116, 39);
+    background-color: rgb(13, 116, 39);
     /* border-radius: 50px; */
     border-radius: 10px 0 10px 0;
     transition: 0.3s ease-in-out;
