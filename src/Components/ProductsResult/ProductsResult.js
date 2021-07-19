@@ -56,6 +56,10 @@ const ProductsResult = ({ }) => {
 
     return (
         <div>
+            <input 
+            value={(e)=>e.target.value}
+            // onChange={}
+            />
 
             <FormSelect className="formSelector"
                 defaultValue={filterType}

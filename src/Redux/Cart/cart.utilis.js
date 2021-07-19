@@ -4,6 +4,36 @@ export const existingCartItem = ({ prevCartItem, nextCartItem }) => {
     return prevCartItem.find(cartItems => cartItems.documentID === nextCartItem.documentID);
 }
 
+// export const handleAddCart = ({prevCartItem, nextCartItem}) => {
+//     console.log(nextCartItem)
+//     const userId = auth.currentUser?.uid
+//     const quantityINC = 1;
+//     const itemExists = existingCartItem({ prevCartItem, nextCartItem });
+//     // console.log("saaaaaaaaaaaaa",itemExists)
+//     ToastsStore.success("Added to Cart")
+//     if (itemExists) {
+//         return prevCartItem.map(cartItem => cartItem.documentID === nextCartItem.documentID ?
+//             {[userId]:
+//                 {
+//                 ...cartItem,
+//                 quantity: cartItem.quantity + quantityINC,
+//                 // userID:uid,
+
+//             } 
+//         }: {[userId]:cartItem},
+//         );
+//     }
+
+//     return [
+//         ...prevCartItem,
+//         {[userId]:{
+//             ...nextCartItem,
+//             quantity: quantityINC,
+//             // userID:userId,
+//         }}
+//     ]
+// }
+
 export const handleAddCart = ({prevCartItem, nextCartItem}) => {
     console.log(nextCartItem)
     // const userId = auth.currentUser?.uid

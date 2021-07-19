@@ -1,24 +1,53 @@
-.head{
+.head {
     text-align: center;
-    margin:2rem auto;
-    color:darkslategray;
+    margin: 2rem auto;
+    color: darkslategray;
 }
-.linkStyle{
+
+.MuiGrid-container {
+    width: 100% !important;
+}
+
+.linkStyle {
     text-decoration: none;
-    color:white;
+    color: white;
 }
-.homeAbout{
-background-color: rgb(250, 182, 94);
-margin:2rem auto;
+
+.homeAbout {
+    background-color: rgb(250, 182, 94);
+    /* margin-top: 2rem; */
+    padding-bottom: 2rem;
+    height: auto;
+    margin: 2rem auto;
 }
+
+.aboutUsDiv {
+    padding: 8px 0px !important;
+}
+
+.aboutUsDiv:hover {
+    transition: 2s all;
+    background-color: #fda32d;
+    border-radius: 50px;
+}
+
+.abcd:hover {
+    border-radius: 50px !important;
+}
+
 
 /* card.js */
 
-.aboutCardHead{
-    font-weight:600;
-    color:burlywood;
+.showBtn {
+    margin: 2rem auto !important;
+}
+
+.aboutCardHead {
+    font-weight: 600;
+    color: burlywood;
     text-transform: capitalize;
 }
-.aboutCardDetail{
-    color:darkslategray
+
+.aboutCardDetail {
+    color: darkslategray
 }
