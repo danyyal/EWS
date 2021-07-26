@@ -23,21 +23,22 @@ const Cart = ({ }) => {
         <Grid container col={12} justify='space-around' alignItems='center'>
           <div className="cartTable">
             <table>
-              <tr>
-                <th className="cartItem"><h4>Product</h4></th>
-                <th className="cartItem"><h4>Product Name</h4></th>
-                <th className="cartItem"><h4>Price</h4></th>
-                <th className="cartItem"><h4>Quantity</h4></th>
-                <th className="cartItem"><h4>Remove</h4></th>
-              </tr>
-            </table>
-            <table>
-              {cartItems.map((item, index) => {
-                return (
-                  console.log(item),
-                  <CartItem {...item} />
-                )
-              })}
+              <thead>
+                <tr>
+                  <th className="cartItem"><h4></h4></th>
+                  <th className="cartItem"><h4>Name</h4></th>
+                  <th className="cartItem"><h4>Price</h4></th>
+                  <th className="cartItem"><h4>Quantity</h4></th>
+                  <th className="cartItem"><h4>Remove</h4></th>
+                </tr>
+              </thead>
+              <tbody>
+                {cartItems.map((item, index) => {
+                  return (
+                    <CartItem {...item} />
+                  )
+                })}
+              </tbody>
             </table>
           </div>
           <Grid container justify='space-around' alignItems='center'>

@@ -4,13 +4,6 @@
     }
 } */
 
-
-
-
-body {
-    overflow-x: hidden;
-}
-
 .wishListItem {
     text-transform: uppercase;
     padding: 2rem;
@@ -35,12 +28,9 @@ body {
     font-size: 2rem;
 }
 
-
 .userSelect {
     user-select: none;
 }
-
-
 
 .wishlistBtn {
     background-color: rgb(35, 184, 35) !important;
@@ -50,7 +40,6 @@ body {
     margin: 1rem 0 !important;
     width: 10rem !important;
 }
-
 
 
 /* .emptyCart {

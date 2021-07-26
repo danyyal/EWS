@@ -54,12 +54,10 @@ const handleSubmit= e=>{
         headline: 'Contact Us',
         icon:<ContactPhoneIcon/>
       };
-    return (
-        <div >
-            {/* <CssBaseline/> */}
-        <AuthWrapper {...configAuthWrapper} >
-
-          
+  return (
+    <div className="contactDiv" >
+        {/* <CssBaseline/> */}
+      <AuthWrapper {...configAuthWrapper} >
         <Paper className='paper'>
           <form onSubmit={handleSubmit} className='contactForm'  >
             <Grid container spacing={3}>
@@ -116,10 +114,9 @@ const handleSubmit= e=>{
             <Button type='submit' className='placeOrderBtn' >Submit</Button>
           </form>
         </Paper>
-
-        </AuthWrapper>
-        </div>
-    )
+      </AuthWrapper>
+    </div>
+  )
 }
 
 export default ContactUs

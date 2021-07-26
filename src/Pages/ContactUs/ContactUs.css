@@ -1,3 +1,10 @@
-.contactForm{
-    margin:2rem
+.contactForm {
+    margin: 2rem
+}
+
+.contactDiv {
+    margin-top: 4.3rem;
+    background-image: url('./contactUs.png');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

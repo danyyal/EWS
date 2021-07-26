@@ -40,7 +40,7 @@ export const handleAddCart = ({prevCartItem, nextCartItem}) => {
     const quantityINC = 1;
     const itemExists = existingCartItem({ prevCartItem, nextCartItem });
     // console.log("saaaaaaaaaaaaa",itemExists)
-    ToastsStore.success("Added to Cart")
+    ToastsStore.success("Cart Updated Successfully")
     if (itemExists) {
         return prevCartItem.map(cartItem => cartItem.documentID === nextCartItem.documentID ?
             {
@@ -68,7 +68,7 @@ export const handleRemoveCartItem = ({ prevCartItem, removeCartItem }) => {
 
 export const handleReduceCartItem = ({ prevCartItem, reduceItem }) => {
     const existingitem = prevCartItem.find(cartItem => cartItem.documentID === reduceItem.documentID);
-
+    ToastsStore.success("Cart Updated Successfully")
     if (existingitem.quantity === 1) {
         return prevCartItem.filter(item => item.documentID !== existingitem.documentID);
     }

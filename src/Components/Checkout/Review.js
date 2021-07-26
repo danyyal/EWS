@@ -9,6 +9,13 @@ const mapState = createStructuredSelector({
   cartItems: selectCartItem,
   total: selectCartTotal
 });
+function getDeliveryCharges(cartItems){
+  let charges = 0;
+  cartItems.map((item) =>{
+    charges= charges + item.quantity;
+  })
+  return charges*30;
+}
 
 const Review = () => {
   const { cartItems, total } = useSelector(mapState);
@@ -17,38 +24,41 @@ const Review = () => {
   return (
     <div>
       <Typography className="review" align='left' variant="h6" >
-        Order History
+        Order Details
        </Typography>
       <Grid container justify='center' alignItems='center'>
         {cartItems.length > 0 ?
           <Grid container col={12} justify='space-around' alignItems='center'>
-            <div className="cartTable">
-              <table>
-                <tr>
-                  <th className="cartItem"><h4>Product Name</h4></th>
-                  <th className="cartItem"><h4>Price</h4></th>
-                  <th className="cartItem"><h4>Quantity</h4></th>
-                </tr>
+              <table  border='1' cellSpacing='0' cellPadding='0'  >
+                <thead>
+                  <tr>
+                    <th className="cartItem"><h4>Product</h4></th>
+                    <th className="cartItem"><h4>Price</h4></th>
+                    <th className="cartItem"><h4>Quantity</h4></th>
+                    <th className="cartItem"><h4>Total</h4></th>
+                  </tr>
+                </thead>
+                <tbody className='orderReviewItems'>
+                {cartItems.map((item, index) => {
+                  return (
+                      <tr border="0" key={index}>
+                        <td className="cartItem cartDetailItem">{item.productName}</td>
+                        <td className="cartItem cartDetailItem">{item.productPrice}</td>
+                        <td className="cartItem cartDetailItem">{item.quantity}</td>
+                        <td className="cartItem cartDetailItem">{item.productPrice * item.quantity}</td>
+
+                      </tr>
+                  )})
+                }
+                </tbody>
               </table>
 
-              {cartItems.map((item, index) => {
+              {/* </table> */}
+            <Grid container className="totalBill" alignItems='center'>
+              <Grid item className="reviewPrice">Total: Rs { total}</Grid>
+              <Grid item className="reviewPrice">Shipping Charges: Rs {getDeliveryCharges(cartItems)}</Grid>
+              <Grid item className="reviewPrice">Grand Total: Rs {total + getDeliveryCharges(cartItems)  }</Grid>
 
-                return (
-                  <table border='1' cellSpacing='0' cellPadding='0' key={index} className='orderReviewItems'>
-                    <tr>
-                      <td className="cartItem ">{item.productName}</td>
-                      <td className="cartItem ">{item.productPrice}</td>
-                      <td className="cartItem ">{item.quantity}</td>
-                    </tr>
-
-                  </table>
-                )
-
-              })}
-
-            </div>
-            <Grid container justify='' alignItems='center'>
-              <Grid item className="reviewPrice">Total: RS {total}</Grid>
             </Grid>
           </Grid> : (
             <p>Cart Empty</p>

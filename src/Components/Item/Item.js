@@ -53,7 +53,7 @@ const Item = (product) => {
           <CardContent className='cardName'>
             <Typography gutterBottom variant="h6" component="h2">
               <Link className='cardLink' to={`/Product/${documentID}`} >
-                <span className='IFont'>Name</span> {productName}
+                <span className='IFont'>Name</span> {productName.length > 15 ? productName.slice(0 , 7) + "....." : productName}
               </Link>
             </Typography>
             <Typography variant="body2" variant="h6" component="h2">

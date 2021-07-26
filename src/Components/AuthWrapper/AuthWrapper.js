@@ -9,38 +9,37 @@ import Typography from '@material-ui/core/Typography';
 import { Link } from 'react-router-dom';
 
 function Copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" to="https://www.google.com" className='signInLink2'>
-          E-Commerce With Scrapping EWS
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" to="https://www.google.com" className='signInLink2'>
+        E-Commerce With Scrapping EWS
         </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
-  }
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
-const AuthWrapper= ({headline,icon,children})=>{
-    
-    return(
-        <Container component="main" maxWidth="lg">
-            <CssBaseline />
-            <div className='paper'>
-                <Avatar className='avatar'>
-                    {icon && icon}
-                </Avatar>
-                <h1 className='heading'>
-                    {headline && headline}
-                </h1>
+const AuthWrapper = ({ headline, icon, children }) => {
 
-                {children && children}
-            </div>
-            <Box mt={8} mb={8}>
-            <Copyright />
-            </Box>
-        </Container>
-    )
+  return (
+    <Container component="main" maxWidth="lg">
+      <CssBaseline />
+      <div className='paper'>
+        <Avatar className='avatar'>
+          {icon && icon}
+        </Avatar>
+        <h1 className='heading'>
+          {headline && headline}
+        </h1>
+        {children && children}
+      </div>
+      <Box mt={8} mb={8}>
+        <Copyright />
+      </Box>
+    </Container>
+  )
 }
 
 

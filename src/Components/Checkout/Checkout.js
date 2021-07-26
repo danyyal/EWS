@@ -84,8 +84,8 @@ const Checkout = () => {
   }, [itemCount])
 
   return (
-    <Fragment>
-      <CssBaseline />
+    <div className="checkoutBackground">
+      {/* <CssBaseline /> */}
       <AuthWrapper {...configAuthWrapper} >
         <Typography className="checkouHeading" align='left' variant="h6" gutterBottom>Shipping address</Typography>
         <Paper className='paper' elevation={0}>
@@ -188,7 +188,7 @@ const Checkout = () => {
           </form>
         </Paper>
       </AuthWrapper>
-    </Fragment>
+    </div>
   );
 }
 

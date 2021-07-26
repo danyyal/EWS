@@ -117,7 +117,6 @@ const Products = () => {
             productDesc,
             stock
           } = product;
-          console.log("product from products.js-------",product)
           return (
             <Grid container className="containerClass" direction='row' alignItems='center' justify='space-around' spacing={2}>
               <Grid item xs={12} md={2}><img className='thumb' src={productThumbnail} /></Grid>

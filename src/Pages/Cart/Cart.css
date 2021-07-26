@@ -1,10 +1,6 @@
-body {
-    overflow-x: hidden;
-}
-
 .cartBtn {
-    background-color:rgb(58, 151, 39)!important;
-    color:  white !important;
+    background-color: rgb(58, 151, 39)!important;
+    color: white !important;
     font-weight: 600 !important;
     font-size: 1rem;
     font-style: italic;
@@ -12,18 +8,17 @@ body {
     width: 12rem !important;
     border-radius: 3rem !important;
 }
-.cartBtn:hover{
+
+.cartBtn:hover {
     transform: scale(1.1);
     transition: 0.2s ease-in-out;
-
-    
     /* background-color: rgb(182, 116, 30) !important;
     color:white !important; */
 }
 
 .cartItem {
     text-transform: uppercase;
-    padding: 2rem;
+    padding: 1rem 1.5rem;
     min-width: 10rem;
 }
 
@@ -49,7 +44,6 @@ body {
     font-size: 1.5rem;
 }
 
-
 .userSelect {
     user-select: none;
 }
@@ -69,8 +63,6 @@ body {
     background-color: burlywood;
     padding: 0.5rem 1.5rem;
 }
-
-
 
 .cartTable {
     margin-top: 1rem;

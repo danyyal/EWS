@@ -7,7 +7,7 @@ const FormSelect = ({ options, defaultValue, label, ...otherProps }) => {
   return (
     <div className="formRow">
       {label && (
-        <label>
+        <label className="whitener">
           {label}
         </label>
       )}
