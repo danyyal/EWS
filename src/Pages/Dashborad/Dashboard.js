@@ -11,6 +11,7 @@ const Dashboard = () => {
     <div>
     
         <DashboardDesign/>
+        <h1 className="historyHeading">Order History</h1>
         <Orders/>
         
       </div>

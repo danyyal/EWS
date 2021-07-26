@@ -5,6 +5,7 @@
 
 .sellerContent {
     border-left: 2px solid black;
+    margin: 1rem auto;
 }
 
 .callToActions {
@@ -12,12 +13,19 @@
     width: 100%;
     padding: 0;
     margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .seller .callToActions ul li {
     margin: 0;
     padding: 0;
     list-style-type: none;
+}
+
+.callToActions div {
+    margin: 0 auto;
 }
 
 .itemFont {
@@ -86,4 +94,18 @@
     border-bottom: 1px solid black;
     margin: 1rem 0 !important;
     text-align: center;
+}
+
+@media screen and (max-width: 830px) {
+    .sellerContent {
+        /* border: none; */
+        width: 100%;
+        /* margin: 1rem 0; */
+    }
+}
+
+@media screen and (max-width: 705px) {
+    .sellerContent {
+        margin: 1rem 0;
+    }
 }

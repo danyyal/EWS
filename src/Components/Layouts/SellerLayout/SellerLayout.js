@@ -31,9 +31,6 @@ const SellerLayout = props => {
                   Sign Out
                 </span>
               </li>
-
-
-              
             </ul>
           </VerticalNav>
         </div>

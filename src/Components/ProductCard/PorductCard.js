@@ -18,7 +18,6 @@ const PorductCard = ({ }) => {
   const { productID } = useParams();
   const history = useHistory();
   const { product, currentUser } = useSelector(mapState);
-  const { uid } = currentUser;
   const { productName, productThumbnail, productPrice, productDesc, stock, displayName } = product;
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const PorductCard = ({ }) => {
   const handleAddToCart = (product) => {
     // const {uid} =currentUser;
     if (!product) return;
-    if (currentUser) return dispatch(addProduct({product}));
+    if (currentUser) return dispatch(addProduct({ product }));
     else return history.push('/SignIn');
   }
 
@@ -75,7 +74,7 @@ const PorductCard = ({ }) => {
 
             <tr>
               <th className="productItems">Decription</th>
-              <td className="productItems"><span className="descriptionWrap" dangerouslySetInnerHTML={{ __html: productDesc ? productDesc : "Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null Null " }} /></td>
+              <td className="productItems"><span className="descriptionWrap" dangerouslySetInnerHTML={{ __html: productDesc ? productDesc : "Null" }} /></td>
             </tr>
           </tr>
         </table>

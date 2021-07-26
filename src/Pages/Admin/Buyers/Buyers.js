@@ -64,7 +64,6 @@ const Buyers = () => {
           <TableBody>
             {(Array.isArray(data) && (data.length > 0)) && data.map((user, index) => {
               const { displayName, createDate, email, documentID } = user;
-
               if (!displayName || !createDate || !email) return null;
               const isSeller = CheckUserIsSeller(user);
               if (!isSeller) {
@@ -78,13 +77,13 @@ const Buyers = () => {
                         < DeleteIcon
                           className='sellerProductIcons'
                           onClick={() => {
-                          if(auth.currentUser.uid === documentID){
-                            ToastsStore.warning('Cannot delete your own account');
-                            return 
-                          }
-                          else{
-                            dispatch(deleteUsers(documentID))
-                          }
+                            if (auth.currentUser.uid === documentID) {
+                              ToastsStore.warning('Cannot delete your own account');
+                              return
+                            }
+                            else {
+                              dispatch(deleteUsers(documentID))
+                            }
                           }}
                         />
                       </Tooltip>
@@ -92,10 +91,7 @@ const Buyers = () => {
                   </TableRow>
                 );
               }
-
-
             })}
-
           </TableBody>
         </Table>
       </TableContainer>

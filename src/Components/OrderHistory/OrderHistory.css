@@ -4,23 +4,8 @@
     width: 10%;
     z-index: 99999;
     text-align: center !important;
-    /* color: violet; */
 }
 
 .historyContainer {
-    margin-bottom: 2rem;
-    min-height: 45vh;
-    background-color: khaki;
-    margin-left: 2rem;
-    width:100%;
-}
-.historyContainer th{
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-@media screen and (min-width:90rem) {
-    .historyContainer td,
-    .historyContainer th {
-        font-size: 1.5rem;
-    }
+    background-color: rgb(245, 230, 164) !important;
 }

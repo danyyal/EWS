@@ -15,5 +15,17 @@
     color: whitesmoke !important;
     font-weight: bold;
     transition: 0.3s ease-in-out !important;
-    transform: scale(1.2);
+    transform: scale(0.8);
+}
+
+.mobile {
+    display: flex;
+    text-decoration: none;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.liBorder {
+    border: 2px solid black !important;
 }

@@ -1,33 +1,68 @@
 .alignSpace {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 0rem;
-  margin: auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0rem;
+    margin: auto 0;
 }
+
 .UpperNavBg {
-  border-top: 3px solid transparent;
-  background-color: #9b8508c7 !important;
-  height:4.5rem;
+    border-top: 3px solid transparent;
+    background-color: #9b8508c7 !important;
+    height: 4.5rem;
 }
+
 .title {
-  color: white;
-  padding-left:5.5rem;
+    color: white;
+    padding-left: 1.5rem;
 }
+
+.homeIcon {
+    color: rgba(1, 233, 152, 0.78);
+    font-size: 1.5rem !important;
+}
+
+.homeIcon:hover {
+    cursor: pointer;
+    transition: 2s all;
+    color: rgb(5, 234, 250);
+}
+
 .log {
-  color: white !important;
+    color: white !important;
 }
-.sider{
-  padding-right: 1.5rem;
+
+.alignHeading {
+    display: flex;
+    padding-left: 2rem;
+    align-items: center;
 }
-@media screen and (max-width:600px){
-    .title{
-      display: none;
+
+@media screen and (max-width:830px) {
+    .alignHeading {
+        padding-left: 1rem;
     }
-    nav div{
-      margin-left: auto;
+    .title {
+        display: none;
     }
-} 
-.UpperNavFlex{
-  display: flex;
+    nav div {
+        margin-left: auto;
+    }
+}
+
+.UpperNavFlex {
+    display: flex;
+    padding-right: 1.5rem;
+}
+
+@media screen and (max-width:620px) {
+    .alignHeading {
+        padding-left: 0.5rem;
+    }
+    .homeIcon {
+        font-size: 1rem !important;
+    }
+    .UpperNavFlex span {
+        font-size: 0.7rem !important;
+    }
 }

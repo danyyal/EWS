@@ -26,7 +26,7 @@ const history =useHistory();
         <VerticalNav>
           <ul>
             <li>
-            <Button  className='adminButtons' onClick={()=>history.push('/dashboard')}>
+            <Button  className='adminButtons' onClick={()=>history.push('/')}>
             Home
           </Button>
               
