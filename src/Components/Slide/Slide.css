@@ -16,7 +16,7 @@
     background-color: rgba(29, 16, 16, 0.453);
     color: white !important;
     transition: 0.4s ease-in-out;
-    transform: scale(1.1) skewX(-15deg);
+    transform: scale(1.1) skewX(15deg);
 }
 
 .carousel .slide {
@@ -45,7 +45,7 @@
 }
 
 .sliderTextInner {
-    background-color: teal;
+    background-color: rgb(97, 107, 5);
     width: 80%;
     margin: 0 auto;
     height: 18rem;
@@ -57,7 +57,7 @@
 }
 
 .sliderTextInner:hover {
-    background-color: rgb(5, 97, 97);
+    background-color: rgb(148, 162, 25);
     border-radius: 1.5rem 5.5rem;
 }
 
