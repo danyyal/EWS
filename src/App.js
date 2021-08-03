@@ -36,15 +36,15 @@ import SellerLayout from './Components/Layouts/SellerLayout/SellerLayout';
 import DashBoardLayout from "./Components/Layouts/DashboardLayout/DashboardLayout";
 import Checkout from "./Components/Checkout/Checkout";
 import AdminLayout from './Components/Layouts/AdminLayout/AdminLayout';
-import {ToastsContainer, ToastsContainerPosition, ToastsStore} from 'react-toasts';
+import { ToastsContainer, ToastsContainerPosition, ToastsStore } from 'react-toasts';
 
 
 const App = props => {
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(checkUserSession());
- 
+
   }, []);
 
   return (
@@ -69,52 +69,52 @@ const App = props => {
         )} />
         <Route exact path='/Products' render={() => (
           <MainLayout >
-            <Search/>
+            <Search />
           </MainLayout>
         )} />
-       <Route exact path='/Products/:filterType' render={() => (
+        <Route exact path='/Products/:filterType' render={() => (
           <MainLayout >
-            <Search/>
+            <Search />
           </MainLayout>
         )} />
         <Route exact path='/Product/:productID' render={() => (
           <MainLayout >
-            <ProductDescription/>
+            <ProductDescription />
           </MainLayout>
         )} />
         <Route exact path='/Cart' render={() => (
           <WithAuth>
-          <MainLayout >
-            <Cart/>
-          </MainLayout>
+            <MainLayout >
+              <Cart />
+            </MainLayout>
           </WithAuth>
         )} />
         <Route path='/Checkout' render={() => (
           <WithAuth>
-          <MainLayout >
-            <Checkout/>
-          </MainLayout>
+            <MainLayout >
+              <Checkout />
+            </MainLayout>
           </WithAuth>
         )} />
 
-       <Route path='/Order/:orderID' render={() => (
+        <Route path='/Order/:orderID' render={() => (
           <WithAuth>
-          <DashBoardLayout >
-            <OrderDetail/>
-          </DashBoardLayout>
+            <DashBoardLayout >
+              <OrderDetail />
+            </DashBoardLayout>
           </WithAuth>
         )} />
-                <Route path='/Wishlist' render={() => (
-             <WithAuth>   
-          <MainLayout >
-            <Wishlist/>
-          </MainLayout>
-          </WithAuth>  
+        <Route path='/Wishlist' render={() => (
+          <WithAuth>
+            <MainLayout >
+              <Wishlist />
+            </MainLayout>
+          </WithAuth>
         )} />
         <Route exact path='/Contact Us' render={() => (
-           <SignLayout>
+          <SignLayout>
             <ContactUs />
-            </SignLayout>
+          </SignLayout>
         )} />
 
         <Route path='/About Us' render={() => (
@@ -132,59 +132,59 @@ const App = props => {
         <Route exact path='/Seller' render={() => (
           <WithSellerAuth>
             <SellerLayout>
-              <SellerOrder/>
+              <SellerOrder />
             </SellerLayout>
           </WithSellerAuth>
-        )} /> 
+        )} />
 
 
 
-<Route exact path='/Admin' component={() => (
+        <Route exact path='/Admin' component={() => (
           <WithAdminAuth>
             <AdminLayout>
-              <Admin/>
+              <Admin />
             </AdminLayout>
           </WithAdminAuth>
-        )} /> 
+        )} />
 
 
-<Route exact path='/Admin/manageSeller' render={() => (
+        <Route exact path='/Admin/manageSeller' render={() => (
           <WithAdminAuth>
             <AdminLayout>
-              <Sellers/>
+              <Sellers />
             </AdminLayout>
           </WithAdminAuth>
-        )} /> 
+        )} />
 
 
-<Route exact path='/Admin/manageBuyer' render={() => (
+        <Route exact path='/Admin/manageBuyer' render={() => (
           <WithAdminAuth>
             <AdminLayout>
-              <Buyers/>
+              <Buyers />
             </AdminLayout>
           </WithAdminAuth>
-        )} /> 
+        )} />
 
 
-<Route exact path='/Admin/ReportGenerator' render={() => (
+        <Route exact path='/Admin/ReportGenerator' render={() => (
           <WithAdminAuth>
             <AdminLayout>
-              <ReportGenerator/>
+              <ReportGenerator />
             </AdminLayout>
           </WithAdminAuth>
-        )} /> 
+        )} />
 
 
     ````<Route path='/Seller/Products' render={() => (
           <WithSellerAuth>
             <SellerLayout>
-              <Products/>
+              <Products />
             </SellerLayout>
           </WithSellerAuth>
-        )} /> 
+        )} />
 
-    
-        
+
+
         <Route path='/Dashboard' render={() => (
           <WithAuth>
             <DashBoardLayout>

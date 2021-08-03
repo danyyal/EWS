@@ -3,9 +3,9 @@ import Slide from '../../Components/Slide/Slide';
 import Product from '../../Components/ProductsResult/Product/Product';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Button, Grid } from '@material-ui/core';
-import Card from '../../Components/Card/Card';
+import { Button } from '@material-ui/core';
 import { fetchProductsStart } from '../../Redux/Products/Products.actions';
+import AboutUsHomeSection from '../../Components/AboutUsHomeSection/AboutUsHomeSection'
 import './Home.css';
 
 
@@ -49,47 +49,7 @@ const Home = () => {
 
       <Button className='showBtn'><Link className='linkStyle' to='/Products'>Show More</Link></Button>
 
-      <Grid container className='homeAbout'>
-
-        <Grid item xs={12}>
-          <Link className='linkStyle' to='/Products'><h1 className='head'>KNOW ABOUT US</h1></Link>
-        </Grid>
-        <Grid container justify="center" spacing={3} alignItems='center' >
-
-          <Grid className="aboutUsDiv" item >
-            <Card className="abcd"
-              img='/images/sellerComm.png'
-              heading='Seller&Buyer Relationship'
-              detail='We take care of our both buyer and seller.Seller will has good relations
-                 with their customers otherwise buyer can complain us by going to....'
-            />
-          </Grid>
-          <Grid className="aboutUsDiv" item >
-            <Card 
-              img='/images/howWork.png'
-              heading='What makes us unique'
-              detail='There is a unique point which makes us different from our competitors that is
-                  approved posts of seller which means no seller....'
-            />
-          </Grid>
-          <Grid  className="aboutUsDiv" item>
-            <Card
-              img='/images/buyerNeed.png'
-              heading='Requirements for buyer or Seller'
-              detail='Anyone can become a buyer or seller just by doing some simplem steps
-                 Go to signUp and register yourself.... '
-            />
-          </Grid>
-          <Grid className="aboutUsDiv" item>
-            <Card 
-              img='/images/aims.png'
-              heading='Our Aims for future'
-              detail='What we plan is to make a platform where people can buy anything they want
-                without any hesitation or being afraid of getting looted....'
-            />
-          </Grid>
-        </Grid>
-      </Grid>
+      <AboutUsHomeSection />
 
 
 

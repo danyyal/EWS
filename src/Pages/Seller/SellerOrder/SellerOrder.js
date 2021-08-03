@@ -7,12 +7,11 @@ import './SellerOrder.css'
 
 const mapState = ({ user, orderData }) => ({
   currentUser: user.currentUser,
-  orderHistory: orderData.orderHistory.data
+  orderHistory: orderData.sellerOrderHistory.data
 })
 const SellerOrder = () => {
   const dispatch = useDispatch();
   const { currentUser, orderHistory } = useSelector(mapState)
-  // console.log("This is the order history we got from the api hit made to the firebase ", orderHistory)
   useEffect(() => {
     dispatch(getSellerOrderHistory(currentUser.id))
   }, [])

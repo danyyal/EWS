@@ -22,7 +22,6 @@ export function* onGetUserOrderHistoryStart() {
 export function* getSellerOrderHistory({ payload }) {
     try {
         const history = yield handleGetSellerOrderHistory(payload);
-
         yield put(setSellerOrderHistory(history));
     } catch (err) {
         console.log(err);
