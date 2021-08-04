@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import SellerDesign from '../SellerDesign';
-import OrderHistory from '../../../Components/OrderHistory/OrderHistory'
+import SellerOrderHistory from './SellerOrderHistory'
 import { getSellerOrderHistory } from '../../../Redux/Orders/orders.actions'
 import './SellerOrder.css'
 
@@ -18,7 +18,7 @@ const SellerOrder = () => {
   return (
     <div className="sellerContentDiv">
       <SellerDesign />
-      <OrderHistory order={orderHistory} />
+      <SellerOrderHistory order={orderHistory} />
     </div>
   )
 }

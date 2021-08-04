@@ -5,7 +5,6 @@ import moment from 'moment';
 import { useHistory } from 'react-router';
 import Checkbox from '@material-ui/core/Checkbox';
 
-import './OrderHistory.css';
 const columns = [
   {
     id: 'orderCreatedDate',
@@ -39,14 +38,13 @@ const formating = (columnName, columnValue) => {
   }
 }
 
-const OrderHistory = ({ order }) => {
+export default function SellerOrderHistory ({ order }) {
   const [checked, setChecked] = useState(true);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
-  const seller = false
-
+const seller = true;
   const history = useHistory();
   return (
       <TableContainer component={Paper} className="historyContainer" >
@@ -84,5 +82,3 @@ const OrderHistory = ({ order }) => {
       </TableContainer>
   )
 }
-
-export default OrderHistory

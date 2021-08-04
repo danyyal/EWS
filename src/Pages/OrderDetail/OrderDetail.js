@@ -9,11 +9,10 @@ const mapState = ({ orderData }) => ({
 })
 
 const OrderDetail = () => {
-    const { orderID } = useParams();
+    const { orderID,seller } = useParams();
     const dispatch = useDispatch();
     const { orderDetail } = useSelector(mapState);
     const { orderTotal } = orderDetail;
-
     useEffect(() => {
         dispatch(getOrderDetailStart(orderID));
     }, []);
@@ -21,7 +20,10 @@ const OrderDetail = () => {
     return (
         <div className="orderHistoryDetail">
             <h1 className="orderHistoryDetailHeading">Order ID:#{orderID} </h1>
-            <Order order={orderDetail} />
+            <Order 
+                order={orderDetail}
+                seller={seller}
+             />
             <h3 className="orderHistoryDetailTotal">Order Total:{orderTotal}</h3>
         </div>
     )

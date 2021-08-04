@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
+import { auth } from '../../Firebase/utils'
 import { setOrderDetail } from '../../Redux/Orders/orders.actions';
 import './Order.css'
+
+const userId = auth.currentUser?.uid
 const columns = [
   {
     id: 'productThumbnail',
@@ -34,8 +37,14 @@ const formating = (columnName, columnValue) => {
 
 
 
-const Order = ({ order }) => {
-  const orderItem = order && order.orderItems;
+const Order = ({ order, seller }) => {
+  let orderItem = order && order.orderItems;
+  let sellerOrders;
+  useEffect(()=>{
+    sellerOrders = orderItem?.filter(item => item.productSellerUID === userId)
+  },[userId,orderItem])
+
+  let mappedArray = seller == true ? sellerOrders : orderItem;
   const dispatch = useDispatch();
   useEffect(() => {
 
@@ -53,30 +62,33 @@ const Order = ({ order }) => {
               {columns.map((column, index) => {
                 const { value } = column;
                 return (
-                    <TableCell className='orderDetailHeadCell'>{value}</TableCell>
+                  <TableCell className='orderDetailHeadCell'>{value}</TableCell>
                 )
               })
               }
             </TableRow>
           </TableHead>
-          <TableBody>
-            {(Array.isArray(orderItem) && orderItem.length > 0) && orderItem.map((order, index) => {
+          {(Array.isArray(mappedArray) && mappedArray.length > 0) && 
+            <TableBody>
 
-              return (
-                <TableRow className="orderDetail" key={index}>
-                  {columns.map((column, index) => {
-                    const columnName = column.id;
-                    const columnValue = order[columnName];
-                    const textFormating = formating(columnName, columnValue);
-                    return (
-                      <TableCell key={index} className='headCell'>{textFormating}</TableCell>
-                    )
-                  })
-                  }
-                </TableRow>
-              )
-            })}
-          </TableBody>
+              {mappedArray.map((order, index) => {
+
+                return (
+                  <TableRow className="orderDetail" key={index}>
+                    {columns.map((column, index) => {
+                      const columnName = column.id;
+                      const columnValue = order[columnName];
+                      const textFormating = formating(columnName, columnValue);
+                      return (
+                        <TableCell key={index} className='headCell'>{textFormating}</TableCell>
+                      )
+                    })
+                    }
+                  </TableRow>
+                )
+              })}
+            </TableBody>
+          }
         </Table>
       </TableContainer>
     </div>
