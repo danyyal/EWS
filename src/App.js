@@ -97,7 +97,7 @@ const App = props => {
           </WithAuth>
         )} />
 
-        <Route path='/Order/:orderID' render={() => (
+        <Route path='/Order/:orderID/:seller' render={() => (
           <WithAuth>
             <DashBoardLayout >
               <OrderDetail />

@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { auth } from '../../Firebase/utils'
 import { setOrderDetail } from '../../Redux/Orders/orders.actions';
 import './Order.css'
+import { checkPreferences } from 'joi';
 
 const userId = auth.currentUser?.uid
 const columns = [
@@ -37,14 +38,17 @@ const formating = (columnName, columnValue) => {
 
 
 
-const Order = ({ order, seller }) => {
+const Order = ({ order, seller, userId }) => {
   let orderItem = order && order.orderItems;
-  let sellerOrders;
+  const [sellerOrders, setSellerOrders] = useState([]);
+
   useEffect(()=>{
-    sellerOrders = orderItem?.filter(item => item.productSellerUID === userId)
+    setSellerOrders(orderItem?.filter(item => item.productSellerUID === userId))
   },[userId,orderItem])
 
-  let mappedArray = seller == true ? sellerOrders : orderItem;
+  let mappedArray = orderItem;
+  if(seller == "true") mappedArray = sellerOrders
+
   const dispatch = useDispatch();
   useEffect(() => {
 
@@ -72,7 +76,6 @@ const Order = ({ order, seller }) => {
             <TableBody>
 
               {mappedArray.map((order, index) => {
-
                 return (
                   <TableRow className="orderDetail" key={index}>
                     {columns.map((column, index) => {
