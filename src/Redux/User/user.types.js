@@ -14,5 +14,8 @@ const userTypes = {
     GET_ALL_USERS:'GET_ALL_USERS',
     SET_ALL_USERS:'SET_ALL_USERS',
     DELETE_USERS:'DELETE_USERS',
-};
+    UPDATE_USER:'UPDATE_USER',
+    GET_USER:'GET_USER',
+    SET_USER:'SET_USER',
+}; 
 export default userTypes;

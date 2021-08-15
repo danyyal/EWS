@@ -44,6 +44,31 @@ export const handleDeleteUser = documentID=> {
     });
 }
 
+export const handleUpdateUser = (user)=>{
+
+    return new Promise ((resolve, reject)=>{
+        firestore.collection('users').doc(user.id).update(user)
+        .then(() => { resolve(); })
+        .catch(err => { reject(err); })
+    })
+}
+
+
+
+export const handleFetchSingleUser = (uid) => {
+    return new Promise((resolve, reject) => {
+        firestore.collection('users').doc(uid).get()
+            .then(snapshot => {
+                if (snapshot.exists) {
+                    resolve({
+                        ...snapshot.data(),
+                        documentID: uid
+                    });
+                }
+            })
+            .catch(err => { reject(err); })
+    });
+}
 
 
 

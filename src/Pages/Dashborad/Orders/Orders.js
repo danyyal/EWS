@@ -18,6 +18,7 @@ const Orders = () => {
   }, [])
   return (
     <div>
+      <h1 className="historyHeading">Order History</h1>
       <div className='all'>
       <OrderHistory order={orderHistory}/>
       </div>

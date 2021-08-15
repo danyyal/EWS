@@ -1,8 +1,10 @@
 import userTypes from './user.types';
 import { takeLatest, call, all, put } from 'redux-saga/effects';
-import { signInSuccess, signOutUserSuccess, resetPasswordSuccess, userError, mailError, setAllUsers,getAllUsers } from './user.actions'
+import { signInSuccess, signOutUserSuccess, resetPasswordSuccess, userError,
+     mailError, setAllUsers,getAllUsers,setUser,getUser} from './user.actions'
 import { auth, handleUserProfile, getCurrentUser, GoogleProvider } from '../../Firebase/utils';
-import { handleGetAllUsers, handleResetPasswordAPI,handleDeleteUser } from './user.helpers'
+import { handleGetAllUsers, handleResetPasswordAPI,handleDeleteUser, handleUpdateUser,
+    handleFetchSingleUser } from './user.helpers'
 import { ToastsStore } from 'react-toasts';
 
 
@@ -178,6 +180,38 @@ export function* onDeleteUser(){
     yield takeLatest(userTypes.DELETE_USERS,deleteUser);
 }
 
+export function* updateUser({payload}){
+    try {
+        const timestamp = new Date();
+       yield handleUpdateUser({
+            ...payload,
+            updated_at: timestamp
+        })
+    yield put(getUser(auth.currentUser.uid));
+    } catch (err) {
+        // console.log(err);
+    }
+}
+
+
+export function* onUpdateUser(){
+    yield takeLatest(userTypes.UPDATE_USER,updateUser);
+}
+
+export function* fetchSignleUser({payload}){
+    try {
+        const user = yield handleFetchSingleUser(payload);
+        yield put(setUser(user));
+    } catch (err) {
+        //  console.log(err);
+    }
+}
+
+export function* onFetchSingleUser(){
+    yield takeLatest(userTypes.GET_USER,fetchSignleUser)
+}
+
+
 export default function* userSagas() {
     yield all([
         call(onEmailSignInStart),
@@ -188,5 +222,7 @@ export default function* userSagas() {
         call(onGoogleSignInStart),
         call(onGetAllUsers),
         call(onDeleteUser),
+        call(onUpdateUser),
+        call(onFetchSingleUser),
     ])
 }

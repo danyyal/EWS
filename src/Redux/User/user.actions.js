@@ -70,3 +70,18 @@ export const deleteUsers=userID=>({
   type:userTypes.DELETE_USERS,
   payload:userID
 });
+
+export const updateUser=(user)=>({
+  type:userTypes.UPDATE_USER,
+  payload:user
+});
+
+export const getUser =uid =>({
+  type:userTypes.GET_USER,
+  payload:uid
+});
+
+export const setUser = (user)=>({
+  type:userTypes.SET_USER,
+  payload:user
+})

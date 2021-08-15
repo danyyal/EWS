@@ -2,15 +2,23 @@ import React ,{useState}from 'react';
 import { Grid, Button,TextField } from '@material-ui/core';
 import {Link,useHistory} from 'react-router-dom';
 import Modal from '../../../Components/Modal/Modal';
+import { updateUser } from '../../../Redux/User/user.actions';
+import { useDispatch,useSelector } from 'react-redux';
 
+
+const mapState =({user})=>({
+  currentUser:user.currentUser
+})
 
 const DashboardDesign = () => {
-  const history = useHistory();
+const history = useHistory();
 const [hideModal, setHideModal] = useState(true);
-const [firstName, setfirstName] = useState('');
-const [lastName, setlastName] = useState('');
+const [displayName, setdisplayName] = useState('');
 const [picture, setpicture] = useState('');
 const [email, setemail] = useState('');
+const dispatch = useDispatch();
+const {currentUser} = useSelector(mapState);
+const{id} = currentUser;
 
 const toggleModal = () => setHideModal(!hideModal);
 
@@ -27,10 +35,20 @@ const resetForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(updateUser({
+      displayName,
+      email,
+      picture,
+       id,
+    }))
       resetForm();
     }
 
-  
+  const handleUpdation =()=>{
+    toggleModal();
+  setdisplayName(currentUser.displayName);
+  setemail(currentUser.email);
+  }
 
 
   return (
@@ -45,7 +63,7 @@ const resetForm = () => {
             </Button>
           </Grid>
           <Grid item md={4} xs={12}>
-            <Button className="dashboardProductButton"  onClick={() => toggleModal()} >
+            <Button className="dashboardProductButton"  onClick={() => handleUpdation()} >
               Manage profile
             </Button>
           </Grid>
@@ -71,24 +89,16 @@ const resetForm = () => {
               required
               fullWidth
               margin='normal'
-              label="First Name"
+              label="Name"
               type="text"
-              value={firstName}
-              onChange={e => setfirstName(e.target.value)}
+              value={displayName}
+              onChange={e => setdisplayName(e.target.value)}
             />
-            <TextField
-              required
-              fullWidth
-              margin='normal'
-              label="Last Name"
-              type="text"
-              value={lastName}
-              onChange={e => setlastName(e.target.value)}
-            />
+            
 
 
             <TextField
-              required
+            
               fullWidth
               id='pic'
               margin='normal'
@@ -104,7 +114,7 @@ const resetForm = () => {
               fullWidth
               margin='normal'
               label="Email"
-              type="email"
+              type="Email"
               value={email}
               onChange={e => setemail(e.target.value)}
             />

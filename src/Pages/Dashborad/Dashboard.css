@@ -10,7 +10,6 @@
     min-width: auto;
 }
 
-
 /* .MuiTableCell-root {
     padding: 16px 0px !important;
 } */
@@ -29,6 +28,7 @@
     transition: 2s all;
     color: white;
     background-color: #97872a;
+    
 }
 
 @media screen and (max-width:1020px) {

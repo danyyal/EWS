@@ -16,7 +16,7 @@ const UserReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentUser: action.payload,
                 userErr: [],
-                MailError:''
+                MailError:'',
             }
         case userTypes.RESET_USER_STATE:
         case userTypes.SIGN_OUT_USER_SUCCESS:
@@ -42,7 +42,7 @@ const UserReducer = (state = INITIAL_STATE, action) => {
         case userTypes.RESET_USER_STATE:
         case userTypes.SIGN_OUT_USER_SUCCESS:
             return {
-                ...state,
+                 ...state,
                 ...INITIAL_STATE
             }
 
@@ -50,6 +50,11 @@ const UserReducer = (state = INITIAL_STATE, action) => {
                 return {
                     ...state,
                     users:action.payload
+                }
+            case userTypes.SET_USER:
+                return{
+                    ...state,
+                    currentUser:action.payload
                 }
     
         default:

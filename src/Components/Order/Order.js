@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 import { auth } from '../../Firebase/utils'
 import { setOrderDetail } from '../../Redux/Orders/orders.actions';
 import './Order.css'
-import { checkPreferences } from 'joi';
 
 const userId = auth.currentUser?.uid
 const columns = [
@@ -48,7 +47,8 @@ const Order = ({ order, seller, userId }) => {
 
   let mappedArray = orderItem;
   if(seller == "true") mappedArray = sellerOrders
-
+  console.log(order)
+  console.log(mappedArray)
   const dispatch = useDispatch();
   useEffect(() => {
 
