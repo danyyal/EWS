@@ -62,11 +62,11 @@ export const handleFetchSingleProduct = (productID) => {
 }
 
 
-export const handleUpdateProduct = (product)=>{
+export const handleUpdateProduct = (product) => {
 
-    return new Promise ((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         firestore.collection('products').doc(product.documentID).update(product)
-        .then(() => { resolve(); })
-        .catch(err => { reject(err); })
+            .then(() => { resolve(); })
+            .catch(err => { reject(err); })
     })
 }

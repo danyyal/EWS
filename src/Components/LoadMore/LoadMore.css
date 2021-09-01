@@ -1,13 +1,14 @@
-.showBtn{
-    background-color:orangered !important;
-    width:100%;
+.showBtn {
+    background-color: orangered !important;
+    width: 100%;
     /* margin:2rem !important; */
-    margin:2rem  !important;
+    margin: 2rem !important;
     border-radius: 50px !important;
-    color:white !important;
+    color: white !important;
     overflow-x: hidden;
 }
-.showBtn:hover{
+
+.showBtn:hover {
     background-color: rgb(233, 78, 17);
-    color:white;
+    color: white;
 }
