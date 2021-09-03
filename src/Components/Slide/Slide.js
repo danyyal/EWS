@@ -52,7 +52,7 @@ useEffect(() => {
           <div className="sliderTextInner">
             <h2>Beautify the World</h2>
             <p>All Kinds of makeup accessories available</p>
-            <Button><Link to='/Checkout' className='btn'>Get Now</Link></Button>
+            {/* <Button><Link to='/Checkout' className='btn'>Get Now</Link></Button> */}
           </div>
         </div>
         <img alt="" src="/images/slide-1.jpg" />
@@ -63,7 +63,7 @@ useEffect(() => {
           <div className="sliderTextInner">
             <h2>Electronics</h2>
             <p>Electronics and Accessories</p>
-            <Button><Link to='/cart-page' className='btn'>Get Now</Link></Button>
+            {/* <Button><Link to='/cart-page' className='btn'>Get Now</Link></Button> */}
           </div>
         </div>
         <img alt="" src="/images/slide-2.jpg" />
@@ -74,7 +74,7 @@ useEffect(() => {
           <div className="sliderTextInner">  
             <h2>Clothing</h2>
             <p className="sliderTextDesc">All kinds of Clothes available</p>
-            <Button><Link to='/cart-page' className='btn'>Get Now</Link></Button>
+            {/* <Button><Link to='/cart-page' className='btn'>Get Now</Link></Button> */}
           </div>
         </div>
         <img alt="" src="/images/slide-3.jpg" />
@@ -85,7 +85,7 @@ useEffect(() => {
           <div className="sliderTextInner">
             <h2>Get perfection</h2>
             <p className="sliderTextDesc">Different types of Vehicles</p>
-            <Button><Link to='/cart-page' className='btn'>Get Now</Link></Button>
+            {/* <Button><Link to='/cart-page' className='btn'>Get Now</Link></Button> */}
           </div>
         </div>
         <img alt="" src="/images/slide-4.jpg" />

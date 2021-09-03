@@ -108,4 +108,7 @@
     .sellerContent {
         margin: 1rem 0;
     }
+    .sellerContent {
+        border-left: 0;
+    }
 }

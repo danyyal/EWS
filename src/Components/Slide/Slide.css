@@ -45,7 +45,7 @@
 }
 
 .sliderTextInner {
-    background-color: rgb(97, 107, 5);
+    background-color: rgb(14, 16, 0);
     width: 80%;
     margin: 0 auto;
     height: 18rem;
@@ -108,7 +108,7 @@
         font-size: 1.5rem;
         position: absolute;
         bottom: -2.5rem;
-        color: rgb(76, 177, 88);
+        color: rgb(255, 0, 0);
         width: 100%;
     }
     .carousel li.slide img {

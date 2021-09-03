@@ -17,10 +17,12 @@ const Wishlist = ({ }) => {
   const history = useHistory();
   return (
     <div className='AlignAbout userSelect'>
+      <h1 className="wishlistHeader">My Wishlist</h1>
       {wishItems.length > 0 ? (
         <Grid container justify='center' alignItems='center' className='cart' >
           <div className="cartTable">
             <table>
+              <thead>
               <tr>
                 <th className="wishListItem"><h4>Product</h4></th>
                 <th className="wishListItem"><h4>Product Name</h4></th>
@@ -28,13 +30,14 @@ const Wishlist = ({ }) => {
                 <th className="wishListItem"><h4>Convert</h4></th>
                 <th className="wishListItem"><h4>Remove</h4></th>
               </tr>
-            </table>
-            <table>
+              </thead>
+              <tbody>
               {wishItems.map((item, index) => {
                 return (
                   <WishItem {...item} />
                 )
               })}
+              </tbody>
             </table>
           </div>
           <Grid container justify='space-around' alignItems='center'>

@@ -19,6 +19,15 @@
     font-size: large;
 }
 
+.wishlistHeader {
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+    background-color: #B09F3C;
+    border-radius: 2rem;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .AlignAbout {
     text-align: center;
 }

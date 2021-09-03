@@ -1,63 +1,88 @@
-
-.rootP{
-    min-width: 23rem;
-    max-width: 23rem;
-    margin: 1rem 1rem ;
+.rootP {
+    border: 5px solid rgb(8, 90, 44);
+    min-width: 20rem !important;
+    max-width: 20rem !important;
+    margin: 1rem 1rem;
 }
-.IFont{
+
+.MuiCardMedia-root {
+    max-height: 35rem !important;
+}
+
+.MuiButton-textSizeSmall {
+    padding: 0px 5px !important;
+}
+
+.MuiPaper-rounded {
+    border-radius: 20px !important;
+}
+
+.MuiCardMedia-img {
+    object-fit: cover !important;
+    height: 300px !important;
+}
+
+.IFont {
     font-weight: 500;
     font-size: 1.2rem;
     margin-right: 8rem;
     text-transform: capitalize;
 }
-.cardLink{
+
+.cardLink {
     text-decoration: none;
-    color:black;
+    color: black;
 }
-.linkItem{
+
+.linkItem {
     text-decoration: none;
-    color:white;
+    color: white;
 }
-.card_align{
+
+.card_align {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.icon{
+
+.icon {
     font-size: 2rem;
-    color:orangered;
+    color: orangered;
     margin-right: 1rem;
 }
-.icon:hover{
+
+.icon:hover {
     transform: scale(1.1);
 }
-.button{
-    background-color:orangered !important;
+
+.button {
+    background-color: orangered !important;
     margin-bottom: 2rem;
 }
-.button:hover{
+
+.button:hover {
     background-color: orangered;
-    color:white;
+    color: white;
     transform: scale(1.2);
 }
 
-.stock{
-    color:rgb(207, 161, 9);
+.stock {
+    color: rgb(207, 161, 9);
     font-size: 1rem;
     font-weight: bold;
     font-style: italic;
 }
-.notInStock{
-    color:red;
-    font-style: italic;
 
+.notInStock {
+    color: red;
+    font-style: italic;
 }
 
-.rating{
+.rating {
     display: flex;
     justify-content: space-around;
-
 }
+
 
 /* .cardName{
 

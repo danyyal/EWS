@@ -66,3 +66,9 @@
         font-size: 0.7rem !important;
     }
 }
+
+@media screen and (max-width:500px) {
+    .alignSpace {
+        display: none;
+    }
+}

@@ -1,4 +1,3 @@
-
 .alignAbout {
     overflow: hidden !important;
 }
@@ -17,7 +16,7 @@
 .descriptionHeading {
     font-style: italic;
     text-align: center;
-    margin-top: 5rem;
+    margin-top: 100px;
     color: #B1A03D;
 }
 
@@ -41,14 +40,18 @@ th {
 }
 
 table {
-    min-width: 50rem !important;
-    max-width: 70rem;
-    display: inline-table;
+    max-width: 100% !important;
+    display: block;
+    overflow: hidden;
+    overflow-x: auto;
 }
 
 @media screen and (max-width:900px) {
     table {
-        min-width: 30rem !important;
+        max-width: 100% !important;
+        display: block;
+        overflow: hidden;
+        overflow-x: auto;
     }
 }
 
@@ -61,6 +64,12 @@ table {
 @media screen and (max-width:500px) {
     table {
         max-width: 20rem !important;
+    }
+    .cartTable table {
+        max-width: 100% !important;
+    }
+    .cartTable {
+        padding: 0px 10px !important;
     }
     .imgTR img {
         width: 16rem;

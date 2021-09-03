@@ -14,6 +14,10 @@
     font-weight: bold;
 }
 
+.reviewMain {
+    max-width: 100%;
+}
+
 .checkoutHeading:hover {
     transition: 1s all;
     background-color: rgb(126, 124, 18);
@@ -26,6 +30,7 @@
 }
 
 .checkoutForm {
+    max-width: 100%;
     background-color: #FAFAFA;
 }
 

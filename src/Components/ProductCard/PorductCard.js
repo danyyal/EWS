@@ -18,7 +18,7 @@ const PorductCard = ({ }) => {
   const { productID } = useParams();
   const history = useHistory();
   const { product, currentUser } = useSelector(mapState);
-  const { productName, productThumbnail, productPrice, productDesc, stock, displayName } = product;
+  const { productName, productThumbnail, productPrice, productDesc, stock, displayName, totalSold } = product;
 
   useEffect(() => {
     dispatch(fetchProductStart(productID));
@@ -68,6 +68,10 @@ const PorductCard = ({ }) => {
               <td className="productItems">{stock ? stock : "null"}</td>
             </tr>
             <tr>
+              <th className="productItems">Total Sold</th>
+              <td className="productItems">{totalSold ? totalSold : '500'}</td>
+            </tr>
+            <tr>
               <th className="productItems">Rating</th>
               <td className="productItems"><Rating /> </td>
             </tr>
@@ -80,7 +84,7 @@ const PorductCard = ({ }) => {
         </table>
       </Grid>
       <Grid container className='descButtons' justify='center' spacing={2} >
-        <Grid item lg={2} sm={3} xs={6}>
+        <Grid item lg={2} md={4} sm={6} xs={12}>
           {stock ?
             <Button className='cartBtn' onClick={() => handleAddToCart(product)}>Add To Cart</Button>
             :
@@ -90,10 +94,10 @@ const PorductCard = ({ }) => {
           }
 
         </Grid>
-        <Grid item lg={2} sm={3} xs={6}>
+        <Grid item lg={2} md={4} sm={6} xs={12}>
           <Button className='cartBtn' onClick={() => handleAddToWhishlist(product)}>Add To Wishlist</Button>
         </Grid>
-        <Grid item lg={2} sm={3} xs={12}>
+        <Grid item lg={2} md={4} sm={6} xs={12}>
 
           {stock ?
             <Button className='cartBtn' onClick={() => history.push('/Checkout')}>Checkout</Button>

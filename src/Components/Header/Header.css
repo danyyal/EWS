@@ -1,45 +1,48 @@
-
-.header{
+.header {
     background-color: darkslategrey !important;
-    padding-left:4rem;
-    margin-top:4.3rem;
+    padding-left: 4rem;
+    margin-top: 4.3rem;
     z-index: 0.9;
- }
+}
+
 @media (max-width: 900px) {
-    .header{
+    .header {
         padding-left: 0px;
     }
-}       
+}
 
-
-  .logo{
+.logo {
     font-family: "Work Sans, sans-serif";
     color: #FFFEFE;
     text-align: left;
-  }
-  .menu_button{
+}
+
+.menu_button {
     font-family: "Open Sans, sans-serif";
-    font-weight:700px !important;
-    font-size: 0.9rem  !important;
-  }
-  .menu_button:hover{
-    background-color:rgb(70, 153, 70) !important;
+    font-weight: 700px !important;
+    font-size: 0.9rem !important;
+}
+
+.menu_button:hover {
+    background-color: rgb(70, 153, 70) !important;
     text-decoration: none;
-    transition: 0.1s ease-in-out ;
-    padding:0.5rem 1rem;
-    color:cornsilk;
+    transition: 0.1s ease-in-out;
+    padding: 0.5rem 1rem;
+    color: cornsilk;
     font-weight: bold;
-  }
-  
-  .drawerContainer{
+}
+
+.drawerContainer {
     padding: 20px 40px;
-    background-color:darkslategrey;
-    color:white;
-  }
-  .link-style{
+    background-color: darkslategrey;
+    color: white;
+}
+
+.link-style {
     font-size: 5rem !important;
-  }
-  .toolbar{
-    display:flex;
+}
+
+.toolbar {
+    display: flex;
     justify-content: space-between;
-  }
+}

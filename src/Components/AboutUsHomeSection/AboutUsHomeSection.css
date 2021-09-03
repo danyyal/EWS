@@ -19,14 +19,17 @@
 }
 
 .aboutsectionImage {
+    display: flex;
     width: 50%;
+    height: 22rem;
 }
 
 .aboutsectionImage img {
-    border: 4px solid rgb(0, 255, 8);
+    margin: 0 auto;
+    border: 4px solid rgb(255, 183, 0);
     border-radius: 25%;
     width: 80%;
-    height: 25rem;
+    height: 21rem;
     transition: 1s ease-in-out;
     opacity: 0.7;
 }
@@ -46,9 +49,7 @@
 .aboutsectionContent span {
     font-size: 1.5rem;
     text-decoration: underline;
-    /* margin: 0 auto;*/
     width: 85%;
-    margin-top: 3rem;
     word-wrap: break-word;
 }
 
@@ -68,6 +69,10 @@
     transition: 2s ease-in-out;
 }
 
+.linkStyle h1 {
+    font-size: 1.5rem !important;
+}
+
 .moreMargin:hover {
     transform: scale(1.1);
 }
@@ -83,19 +88,7 @@
     border-radius: 10rem 2rem;
 }
 
-@media screen and (min-width:850px) {
-    .aboutsectionContent span {
-        padding-left: 1rem;
-    }
-}
-
 @media screen and (max-width:1350px) {
-    .aboutsectionImage img {
-        width: 100%;
-    }
-    .aboutsectionImage {
-        margin-right: 1rem;
-    }
     .aboutsectionDivInner {
         width: 80%;
     }
@@ -112,6 +105,7 @@
         width: 90%;
     }
     .aboutsectionImage {
+        height: 21rem;
         width: 55%;
     }
     .aboutsectionContent {
@@ -147,5 +141,36 @@
     }
 }
 
+@media screen and (min-width:850px) {
+    .aboutsectionContent span {
+        padding-left: 1rem;
+    }
+    .aboutsectionImage img {
+        height: 20rem;
+        width: 80%;
+    }
+}
 
-/* 1075 */
+@media screen and (max-width:700px) {
+    .aboutsectionImage img {
+        height: 10rem;
+        width: 100%;
+    }
+    .aboutsectionContent span {
+        /* padding: 0 1rem; */
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    .aboutsectionContent h1 {
+        font-size: 1.5rem;
+        padding: 0 2rem;
+        margin-top: 1rem;
+    }
+    .aboutsectionImage {
+        height: 10rem;
+        width: 55%;
+    }
+    .linkStyle h1 {
+        font-size: 1rem !important;
+    }
+}

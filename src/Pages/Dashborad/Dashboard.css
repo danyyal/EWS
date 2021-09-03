@@ -2,13 +2,12 @@
     border: 1px solid black;
     max-height: 50vh;
     overflow-y: scroll;
-    min-width: 30rem !important;
-    margin-left: 2rem;
 }
 
 .MuiTable-root {
     min-width: auto;
 }
+
 
 /* .MuiTableCell-root {
     padding: 16px 0px !important;
@@ -21,14 +20,12 @@
     font-style: italic;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    margin-left: 2rem;
 }
 
 .historyHeading:hover {
     transition: 2s all;
     color: white;
     background-color: #97872a;
-    
 }
 
 @media screen and (max-width:1020px) {

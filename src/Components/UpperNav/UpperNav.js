@@ -9,6 +9,7 @@ import { CheckUserIsSeller, CheckUserIsAdmin } from '../../Utils/Utils';
 import { selectCartItemsCount } from '../../Redux/Cart/cart.selector';
 import { selectWishItemsCount } from '../../Redux/Wishlist/wish.selector';
 import HomeIcon from '@material-ui/icons/Home';
+import Dropdown from '../Dropdown/Dropdown'
 import './Uppernav.css';
 
 const mapState = (state) => ({
@@ -23,9 +24,12 @@ const UpperNav = (props) => {
   const signOut = () => { dispatch(signOutUserStart()) };
   const isSeller = CheckUserIsSeller(currentUser);
   const isAdmin = CheckUserIsAdmin(currentUser);
+  const dropdownItems ={totalCartItems, totalWishItems, currentUser, isSeller, isAdmin, signOut}
   return (
+<>
 
     <AppBar className='UpperNavBg'>
+      <Dropdown className="upperDropdown" dropdownItems={dropdownItems} />
       <nav className='alignSpace'>
         <div className="alignHeading">
           <HomeIcon
@@ -62,6 +66,7 @@ const UpperNav = (props) => {
         </div>
       </nav>
     </AppBar>
+    </>
   );
 }
 

@@ -23,8 +23,8 @@ const CartItem = (product) => {
   return (
     <tr>
       <td className="cartItem"><img src={productThumbnail} alt='ERR' /></td>
-      <td className="cartItem cartIFont">{productName}</td>
-      <td className="cartItem cartIFont">{productPrice}</td>
+      <td className="cartItem cartIFont">{productName.length > 20 ? productName.slice(0 , 15) + "......." : productName}</td>
+      <td className="cartItem cartIFont">{Math.round(parseInt(productPrice))}</td>
       <td className="cartItem">
         <span className='itemQuanBtn' onClick={() => handleReduceProduct(product)}>{`- `}</span>
         <span className="cartPageQuantity">{quantity}</span>

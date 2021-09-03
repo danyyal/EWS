@@ -91,7 +91,7 @@ const Checkout = () => {
         <Paper className='paper' elevation={0}>
           <form className="checkoutForm" onSubmit={handleSubmit}>
             <Grid container spacing={3}>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   id="firstName"
@@ -102,7 +102,7 @@ const Checkout = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   id="lastName"
@@ -113,7 +113,7 @@ const Checkout = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   required
                   id="address1"
@@ -124,7 +124,7 @@ const Checkout = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField
                   id="address2"
                   name="address2"
@@ -134,7 +134,7 @@ const Checkout = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={12} sm={6} >
                 <TextField
                   required
                   id="city"
@@ -145,7 +145,7 @@ const Checkout = () => {
                   fullWidth
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={12} sm={6} >
                 <TextField
                   required
                   id="state"
@@ -155,7 +155,7 @@ const Checkout = () => {
                   onChange={evt => handleOnChange(evt)}
                   fullWidth />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={12} sm={6} >
                 <TextField
                   required
                   id="zip"
@@ -166,7 +166,7 @@ const Checkout = () => {
                   onChange={evt => handleOnChange(evt)}
                 />
               </Grid>
-              <Grid item xs={6} >
+              <Grid item xs={12} sm={6} >
                 <TextField
                   required
                   id="country"

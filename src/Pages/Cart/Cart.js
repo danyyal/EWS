@@ -19,6 +19,7 @@ const Cart = ({ }) => {
 
   return (
     <div className='AlignAbout userSelect'>
+      <h1 className="cartHeader">My Cart</h1>
       {cartItems.length > 0 ?
         <Grid container col={12} justify='space-around' alignItems='center'>
           <div className="cartTable">
@@ -41,8 +42,8 @@ const Cart = ({ }) => {
               </tbody>
             </table>
           </div>
-          <Grid container justify='space-around' alignItems='center'>
-            <Grid item className="cartPrice">Total: RS {total}</Grid>
+          <Grid className="checkoutWrapper" container justify='space-around' alignItems='center'>
+            <Grid item className="cartPrice">Total: RS {Math.round(parseInt(total))}</Grid>
             <Grid item>
               <Button className='cartBtn' onClick={() => history.push('/Products')}>
                 Continue Shopping

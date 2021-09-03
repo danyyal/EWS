@@ -23,9 +23,8 @@ const WishItem = (product) => {
     return (
         <tr>
             <td className="wishListItem"><img src={productThumbnail} alt='ERR' /></td>
-            <td className="wishListItem wishListIFont">{productName}</td>
-            <td className="wishListItem wishListIFont">{productPrice}</td>
-            
+            <td className="wishListItem wishListIFont">{productName.length > 20 ? productName.slice(0 , 15) + "......." : productName}</td>
+            <td className="wishListItem wishListIFont">{Math.round(parseInt(productPrice))}</td>
                 {stock? 
                 <td className="wishListItem">
                 <Button className='cartBtn' onClick={() => handleAddProduct(product)}>
