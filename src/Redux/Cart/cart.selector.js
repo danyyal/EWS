@@ -9,6 +9,12 @@ export const selectCartItemsCount = createSelector([selectCartItem],
     cartItem => cartItem.reduce((quantity, cartItem) => quantity + cartItem.quantity, 0)
 );
 
+// export const selectCartItemsCount = createSelector([selectCartItem],
+//     cartItem => cartItem.reduce((quantity, cartItem) => {
+//         if(cartItem.userID !== auth.currentUser?.uid ) return 0; 
+//         return quantity + cartItem.quantity}, 0)
+// );
+
 export const selectCartTotal = createSelector([selectCartItem],
     cartItem => cartItem.reduce((quantity, cartItem) => quantity + cartItem.quantity * cartItem.productPrice, 0)
 );

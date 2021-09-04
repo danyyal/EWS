@@ -1,32 +1,33 @@
-
 .userProfile {
     display: block;
     width: 100%;
-    margin: 3rem auto 1rem;
+    margin: 0 auto;
 }
-   
-        .img {
-            display: block;
-            width: 4.5rem;
-            margin: 0 auto;
-        }
-        .img img{
-            display: block;
-            width: 100%;
-        }
-  
-        .displayName {
-          display: block;
-          width: 100%;
-          text-align: center;
-          margin: 1rem auto;
-          font-size: 1rem;
-          line-height: 1;
-          text-transform: uppercase;
-          color:rgb(33, 63, 68) !important;
-          font-weight:bolder;
-        }
-      .displayName:hover{
-          transform: scale(1.2);
-      }
-  
+
+.img {
+    display: flex;
+    justify-content: center;
+    /* margin: 0 auto; */
+}
+
+.imgLi {
+    text-decoration: none;
+    list-style: none;
+}
+
+.displayName {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin: 1rem auto;
+    font-size: 1rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: rgb(33, 63, 68) !important;
+    font-weight: bolder;
+}
+
+.displayName:hover {
+    transform: scale(1.2);
+}

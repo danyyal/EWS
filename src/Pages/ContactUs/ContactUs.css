@@ -3,7 +3,8 @@
 }
 
 .contactDiv {
-    margin-top: 4.3rem;
+    padding-top: 1.5rem;
+    margin-top: 2.6rem;
     background-image: url('./contactUs.png');
     background-repeat: no-repeat;
     background-size: cover;

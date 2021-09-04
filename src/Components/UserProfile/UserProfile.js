@@ -5,18 +5,28 @@ import './UserProfile.css';
 const UserProfile = props => {
   const { currentUser } = props;
   const { displayName } = currentUser;
-  // console.log(displayName.displayName);
+  const { picture } = currentUser
 
 
   return (
     <div className="userProfile">
       <ul className='listStyle'>
-        <li>
+        <li className="imgLi">
           <div className="img">
-            <img src='/images/user.png'/>
+            {picture ? <img style={{
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center center",
+              backgroundColor: "#f7f7f7",
+              border: "1px solid #f7f7f7",
+              display: "table-cell",
+              borderRadius: "100%",
+              height: "200px",
+              width: "200px",
+              backgroundSize: "cover"
+            }} src={`${picture}`} /> : <img src='/images/user.png' />}
           </div>
         </li>
-        <li>
+        <li className="imgLi">
           <span className="displayName">
             {displayName && displayName}
           </span>

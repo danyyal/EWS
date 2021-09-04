@@ -57,7 +57,7 @@ const ProductsResult = ({ }) => {
             const configProduct = { ...product };
 
             return (
-              <Product {...configProduct} />
+              <Product key={index} {...configProduct} />
             );
           })}
         </div>

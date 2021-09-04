@@ -12,9 +12,11 @@ import ShoppingCart from '@material-ui/icons/ShoppingCart';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Login from '@material-ui/icons/VpnKey';
+import HomeIcon from '@material-ui/icons/Home';
 import SignUp from '@material-ui/icons/Add';
-import MenuIcon from '@material-ui/icons/Menu';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 
 import './DropDown.css'
 
@@ -42,7 +44,7 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     '&:focus': {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: theme.palette.primary.info,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
         color: theme.palette.common.white,
       },
@@ -51,6 +53,13 @@ const StyledMenuItem = withStyles((theme) => ({
 }))(MenuItem);
 
 export default function Dropdown({ dropdownItems }) {
+
+  const mapState = ({ user }) => ({
+    currentUser: user?.currentUser
+  })
+
+  const { currentUser } = useSelector(mapState);
+  const picture = currentUser?.picture;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const history = useHistory();
   const handleClick = (event) => {
@@ -63,14 +72,32 @@ export default function Dropdown({ dropdownItems }) {
 
   return (
     <div className="upperDropDown">
+      <div className="img">
+        {picture && <img style={{
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center center",
+          backgroundColor: "#f7f7f7",
+          border: "1px solid #f7f7f7",
+          display: "table-cell",
+          borderRadius: "100%",
+          height: "50px",
+          width: "50px",
+          backgroundSize: "cover"
+        }} src={`${picture? picture : '/images/user.png'}`}  />}
+        <HomeIcon
+          fontSize="medium"
+          onClick={() => history.push('/')} />
+
+      </div>
       <Button
+        className="dropDownButton"
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
-        color="primary"
+        color="transparent"
         onClick={handleClick}
       >
-        <MenuIcon fontSize="small"/>
+        <MoreVertIcon fontSize="large" />
       </Button>
       <StyledMenu
         id="customized-menu"

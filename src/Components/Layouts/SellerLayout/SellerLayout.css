@@ -1,7 +1,7 @@
 .sellercontrolPanel {
     border-top: 0.1rem solid black;
     border-bottom: 0.1rem solid black;
-    margin-top: 4.5rem;
+    margin-top: 10rem;
     height: auto;
     display: flex;
 }
@@ -12,6 +12,7 @@
 
 .sellersidebar {
     width: 20%;
+    margin: auto auto;
 }
 
 .sellermobileSideBar {

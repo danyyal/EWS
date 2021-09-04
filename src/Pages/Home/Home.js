@@ -34,7 +34,7 @@ const Home = () => {
       <div className='products'>
 
         {data && data.length > 0 ? data.map((product, index) => {
-          const { productThumbnail, productName, productPrice, stock } = product;
+          const { productThumbnail, productName, productPrice, totalSold } = product;
           if (!productThumbnail || !productName || typeof productPrice === 'undefined') return null;
           const configProduct = { ...product };
 

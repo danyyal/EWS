@@ -34,6 +34,34 @@ export const existingCartItem = ({ prevCartItem, nextCartItem }) => {
 //     ]
 // }
 
+
+// export const handleAddCart = ({prevCartItem, nextCartItem}) => {
+//     const userId = auth.currentUser?.uid
+//     const quantityINC = 1;
+//     const itemExists = existingCartItem({ prevCartItem, nextCartItem });
+//     // console.log("saaaaaaaaaaaaa",itemExists)
+//     ToastsStore.success("Cart Updated Successfully")
+//     if (itemExists) {
+//         return prevCartItem.map(cartItem => cartItem.documentID === nextCartItem.documentID ?
+//             {
+//                 ...cartItem,
+//                 quantity: cartItem.quantity + quantityINC,
+//                 userID:userId,
+
+//             } : cartItem,
+//         );
+//     }
+
+//     return [
+//         ...prevCartItem,
+//         {
+//             ...nextCartItem,
+//             quantity: quantityINC,
+//             userID:userId,
+//         }
+//     ]
+// }
+
 export const handleAddCart = ({prevCartItem, nextCartItem}) => {
     console.log(nextCartItem)
     // const userId = auth.currentUser?.uid

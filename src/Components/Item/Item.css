@@ -19,7 +19,11 @@
 
 .MuiCardMedia-img {
     object-fit: cover !important;
-    height: 300px !important;
+    height: 200px !important;
+}
+
+.MuiCardActions-root {
+    padding: 0px 8px !important;
 }
 
 .IFont {
@@ -83,7 +87,6 @@
     justify-content: space-around;
 }
 
-
-/* .cardName{
-
-} */
+.cardName {
+    padding: 16px 8px 30px 8px !important;
+}

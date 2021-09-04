@@ -65,7 +65,6 @@ const Item = (product) => {
         </CardActionArea>
 
         <CardActions className='card_align'>
-          <span ><Rating /></span>
           {stock > 0 ? (
             <span className='stock'>Stock
               <span>( {stock})</span>

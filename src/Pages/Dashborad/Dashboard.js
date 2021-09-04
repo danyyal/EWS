@@ -8,7 +8,7 @@ import Orders from './Orders/Orders';
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="dashboardSetting">
     
         <DashboardDesign/>
         <Orders/>

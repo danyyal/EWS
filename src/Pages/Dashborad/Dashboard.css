@@ -8,6 +8,11 @@
     min-width: auto;
 }
 
+.dashboardSetting {
+    width: 95%;
+    margin: 0 auto;
+}
+
 
 /* .MuiTableCell-root {
     padding: 16px 0px !important;
