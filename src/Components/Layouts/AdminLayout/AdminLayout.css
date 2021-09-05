@@ -29,3 +29,8 @@
 .liBorder {
     border: 2px solid black !important;
 }
+
+.resetForm {
+    background-color: coral !important;
+    padding: 0.4rem 3rem !important;
+}

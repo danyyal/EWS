@@ -163,7 +163,11 @@ const SignUp = props => {
             </Typography>
           </Grid>
         </Grid>
-        
+        <Grid item xs={12}>
+          <Typography>
+            <Button className="resetForm" onClick={()=>ResetForm()} >Reset Form</Button>
+          </Typography>
+        </Grid>
         <Button
           type="submit"
           fullWidth

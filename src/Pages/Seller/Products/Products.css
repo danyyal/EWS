@@ -1,5 +1,6 @@
 .sellerProductContainer {
     margin-left: 2rem !important;
+    margin-right: 2rem !important;
 }
 
 @media screen and (max-width: 400px) {

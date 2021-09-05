@@ -1,0 +1,58 @@
+.usermodalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.usermodalWrap {
+    position: fixed;
+    top: 50%;
+    left: 25%;
+    width: 70%;
+    height: 0;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.usermodalWrap .userModal {
+    position: absolute;
+    top: 0rem;
+    left: 36%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: white;
+    width: 70%;
+    /* padding: 2rem; */
+    height: 35rem;
+    pointer-events: all;
+    max-height: 95vh;
+    overflow: auto;
+}
+
+.productAddButtonModal {
+    color: white !important;
+    background-color: crimson!important;
+    width: 100% !important;
+    text-align: center !important;
+    margin-top: 1rem !important;
+}
+
+@media screen and (min-width: 651px) and (max-width: 1050px) {
+    .usermodalWrap .userModal {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .usermodalWrap .userModal {
+        width: 120%;
+    }
+}
+
+.userModal>.MuiContainer-root>.paper {
+    margin-top: 0rem !important;
+}

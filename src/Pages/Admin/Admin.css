@@ -12,5 +12,10 @@
 
 .buyerPaper {
     margin-left: 2rem;
+    margin-right: 2rem;
     background-color: rgb(245, 230, 164) !important;
+}
+
+.MuiTableContainer-root {
+    width: auto !important;
 }

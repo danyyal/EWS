@@ -37,7 +37,7 @@ function Footer() {
             <span><MessageOutlinedIcon className='footerIcone' /></span>
             <span>
               <h4>INSTANT SUPPORT</h4>
-              <p>watsapp 03114292168</p>
+              <p>whatsapp 03114292168</p>
             </span>
           </Grid>
           <Grid item xs={6} sm={3} className='align'>
