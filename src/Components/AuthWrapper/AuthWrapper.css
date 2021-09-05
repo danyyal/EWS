@@ -1,4 +1,5 @@
 .paper {
+    margin-top: 4.4rem !important;
     display: flex;
     flex-direction: column;
     align-items: center;

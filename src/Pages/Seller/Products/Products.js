@@ -157,6 +157,7 @@ const Products = () => {
 
             <FormSelect
               label="Category"
+              value={productCategory}
               options={categories}
               onChange={e => setProductCategory(e.target.value)}
             />

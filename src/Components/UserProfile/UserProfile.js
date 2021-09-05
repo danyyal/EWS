@@ -20,8 +20,8 @@ const UserProfile = props => {
               border: "1px solid #f7f7f7",
               display: "table-cell",
               borderRadius: "100%",
-              height: "200px",
-              width: "200px",
+              height: "150px",
+              width: "150px",
               backgroundSize: "cover"
             }} src={`${picture}`} /> : <img src='/images/user.png' />}
           </div>

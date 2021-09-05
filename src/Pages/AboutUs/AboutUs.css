@@ -1,9 +1,317 @@
-.AlignAbout{
-    margin-top: 4rem;
+.AlignAbout {
+    margin-top: 5rem;
 }
-/* .bgAbout{
-    background-image: `url(${'/images/aboutUs.png'})`;
-} */
-/* .aboutHead{
-    color:black
-} */
+
+.container {
+    max-width: 1170px;
+    margin: 0 auto;
+}
+
+.aboutHead {
+    padding-top: 2rem;
+    margin-bottom: 80px;
+    color: darkslategray;
+    font-style: oblique;
+    background-color: khaki;
+    line-height: 3.5rem;
+}
+
+.textStyle {
+    color: rgb(36, 180, 36);
+}
+
+.planingHead h2 {
+    text-align: left;
+    word-spacing: 0.4rem;
+    font-size: 1.5rem;
+    color: darkslategray;
+    padding-bottom: 2rem;
+}
+
+.planBody {
+    width: 48%;
+}
+
+.planImg {
+    width: 48%;
+}
+
+.planImg img {
+    width: 100%;
+    height: 100%;
+}
+
+.planBody p,
+.mission p {
+    color: rgba(41, 39, 39, 0.699);
+    line-height: 2rem;
+    font-size: 1.2rem;
+    text-align: justify;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.serviceRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.serviceDetail {
+    width: 33.33%;
+    list-style: none;
+    color: rgba(68, 64, 64, 0.795);
+    margin-top: 3rem;
+    padding: 1.2rem;
+}
+
+.services {
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.services h1 {
+    color: darkslategray;
+}
+
+.serviceDetail h5 {
+    color: darkslategray;
+    padding-bottom: 1rem;
+}
+
+.serviceDetail .icon {
+    font-size: 4rem !important;
+    color: rgb(112, 167, 29);
+    padding-bottom: 1rem;
+}
+
+.serviceDetail h5 {
+    font-size: 1.3rem;
+}
+
+.serviceDetail p {
+    font-size: 1.1rem;
+}
+
+.mission {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-bottom: 5rem;
+    margin-bottom: 4rem;
+    border-radius: 50px;
+}
+
+.mission .planImg {
+    width: 40%;
+}
+
+.mission .planImg img {
+    border-radius: 50px;
+}
+
+.mission p {
+    width: 40%;
+}
+
+.mission-value h1 {
+    color: darkslategray;
+    padding: 2.5rem 0;
+    padding-bottom: 4rem;
+}
+
+@media screen and (max-width:1250px) {
+    .container {
+        padding: 2rem;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .flexRow {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .planImg,
+    .planBody {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .serviceDetail {
+        width: 30%;
+        margin-top: 1rem;
+    }
+    .serviceDetail .icon {
+        font-size: 2.1rem !important;
+        padding: 0;
+    }
+    .serviceDetail h5 {
+        font-size: 1rem;
+    }
+    .serviceDetail p {
+        font-size: 0.7rem;
+    }
+    .mission {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 20px;
+        margin-bottom: 0;
+    }
+    .mission .planImg {
+        width: 100%;
+    }
+    .mission p {
+        width: 100%;
+    }
+    .missionLast {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .aboutHead {
+        font-size: 0.8rem;
+    }
+    .serviceRow {
+        display: flex;
+        flex-direction: column;
+    }
+    .serviceRows {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .serviceDetail {
+        width: 100%;
+    }
+    .lastRow {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .serviceDetail .icon {
+        font-size: 2.5rem !important;
+        padding: 0;
+    }
+    .serviceDetail h5 {
+        font-size: 1rem;
+    }
+    .serviceDetail p {
+        font-size: 0.9rem;
+    }
+    .d-none {
+        display: none;
+    }
+}
+
+.ourTeamHeader {
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: bold;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: blue;
+}
+
+.Featured {
+    max-height: 24rem;
+    overflow: hidden;
+}
+
+.feature {
+    text-align: center;
+    position: relative;
+    display: flex;
+}
+
+.feature__div1,
+.feature__div2,
+.feature__div3 {
+    position: absolute;
+    z-index: 0.5;
+    width: 33%;
+    transition: all 1s;
+    height: 3rem;
+    background-color: white;
+}
+
+.feature__div2 {
+    left: 33%;
+}
+
+.feature__div3 {
+    left: 66%;
+}
+
+.feature__image {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    overflow: hidden;
+    height: 20rem;
+}
+
+.feature__image h1 {
+    color: maroon;
+    background-color: transparent;
+}
+
+.name {
+    background-color: transparent;
+}
+
+.w1:hover .a1 {
+    height: 0rem;
+}
+
+.w2:hover .a2 {
+    height: 0rem;
+}
+
+.w3:hover .a3 {
+    height: 0rem;
+}
+
+@media screen and (max-width:767px) {
+    .Featured {
+        max-height: 70rem;
+    }
+    .feature {
+        flex-direction: column;
+    }
+    .feature__div1,
+    .feature__div2,
+    .feature__div3 {
+        position: absolute;
+        z-index: 0.5;
+        width: 100%;
+        transition: all 1s;
+        height: 3rem;
+        background-color: white;
+    }
+    .feature__image {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* height: 30rem; */
+        margin-bottom: 2rem;
+        border-bottom: 2px solid black;
+        border-top: 2px solid black;
+    }
+    .feature__div2 {
+        left: 0%;
+    }
+    .feature__div3 {
+        left: 0%;
+    }
+}

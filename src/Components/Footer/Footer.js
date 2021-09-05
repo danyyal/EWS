@@ -57,45 +57,45 @@ function Footer() {
         <Grid container spacing={3} className='alignLower'>
           <Grid item xs={12} sm={6} md={3} className='footerText' >
             <ul className='footerlistStyle' >
-              <h5>Fashion Accessories</h5>
-              <li><Link className='link_style' to="/contact">Clothes </Link></li>
-              <li><Link className='link_style' to="/contact">Shoe </Link></li>
-              <li><Link className='link_style' to="/contact">Jewlery </Link></li>
-              <li><Link className='link_style' to="/contact">Cosmetics</Link></li>
-              <li><Link className='link_style' to="/contact">Skin care</Link></li>
-              <li><Link className='link_style' to="/contact">Other Accessories </Link></li>
+              <h5>Fashion & Accessories</h5>
+              <li><Link className='link_style' to="/Products/menscloth"> Mens Clothes</Link></li>
+              <li><Link className='link_style' to="/Products/shoes">Shoe </Link></li>
+              <li><Link className='link_style' to="/Products/womenjewellery">Jewllery </Link></li>
+              <li><Link className='link_style' to="/Products/bags">Bags</Link></li>
+              <li><Link className='link_style' to="/Products/healthandbeauty">Health & Beauty</Link></li>
             </ul>
           </Grid>
           <Grid item xs={12} sm={6} md={3} className='footerText'>
             <ul className='footerlistStyle'>
               <h5 >Electronics</h5>
-              <li ><Link className='link_style' to="/contact">Machines</Link></li>
-              <li><Link className='link_style' to="/contact">Mobile Phones</Link></li>
-              <li><Link className='link_style' to="/contact">Computer/Laptops </Link></li>
-              <li><Link className='link_style' to="/contact">Home Appliance</Link></li>
-              <li><Link className='link_style' to="/contact">Air Conditioners</Link></li>
+              <li><Link className='link_style' to="/Products/computerandofficeappliances">
+                Computer Appliances</Link></li>
+              <li><Link className='link_style' to="Products/phonecables">Phone Cables </Link></li>
+              <li><Link className='link_style' to="/Products/phonesaccessories">Phone Accessories</Link></li>
+              <li><Link className='link_style' to="/Products/phonesandcommunicationdevices">Communication Devices</Link></li>
+              <li ><Link className='link_style' to="/Products/automobilesandmotorcycle">
+                Auto mobiles and motor Car</Link></li>
             </ul>
           </Grid >
           <Grid item xs={12} sm={6} md={3} className='footerText'>
             <ul className='footerlistStyle' >
-              <h5 >Books</h5>
-              <li><Link className='link_style' to="/contact">Islamic Books</Link></li>
-              <li><Link className='link_style' to="/contact">Hidths Books </Link></li>
-              <li><Link className='link_style' to="/contact">Historical Books</Link></li>
-              <li><Link className='link_style' to="/contact">Novels&Magazines</Link></li>
-              <li><Link className='link_style' to="/contact">Kids stories Books</Link></li>
-              <li><Link className='link_style' to="/contact">Courses Books</Link></li>
+              <h5 >Sports & Entertainment </h5>
+              <li><Link className='link_style' to="/Products/sportsandentertainment">Sports</Link></li>
+              <li><Link className='link_style' to="/Products/toys">Toys</Link></li>
+              <li><Link className='link_style' to="/Products/tools">Other Tools</Link></li>
+              <li><Link className='link_style' to="/Products/kids">Kids shop</Link></li>
+              <li><Link className='link_style' to="/Products/watches">Watches</Link></li>
             </ul>
           </Grid>
 
           <Grid item xs={12} sm={6} md={3} className='footerText'>
             <ul className='footerlistStyle'>
-              <h5>Rental Products</h5>
-              <li ><Link className='link_style' to="/contact">Cars&Bikes</Link></li>
-              <li ><Link className='link_style' to="/contact">Shops</Link></li>
-              <li><Link className='link_style' to="/contact">Home&Hostel</Link></li>
-              <li><Link className='link_style' to="/contact">Books</Link></li>
-              <li><Link className='link_style' to="/contact">Bridal Dresses</Link></li>
+              <h5>Home Decoration</h5>
+              <li ><Link className='link_style' to="/Products/plants">Plants</Link></li>
+              <li ><Link className='link_style' to="/Products/homeimprovements">Technologies</Link></li>
+              <li><Link className='link_style' to="/Products/petproducts">Pets accessories</Link></li>
+              <li><Link className='link_style' to="/Products/securityproducts">Home Security</Link></li>
+              <li><Link className='link_style' to="/Products/others">Other Accessories </Link></li>
             </ul>
           </Grid>
         </Grid>
