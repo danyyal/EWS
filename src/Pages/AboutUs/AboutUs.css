@@ -224,7 +224,7 @@
 }
 
 .Featured {
-    max-height: 24rem;
+    max-height: 40rem;
     overflow: hidden;
 }
 
@@ -258,7 +258,8 @@
     flex-direction: column;
     width: 33%;
     overflow: hidden;
-    height: 20rem;
+    min-height: 26.5rem;
+    max-height: 26.5rem;
 }
 
 .feature__image h1 {
