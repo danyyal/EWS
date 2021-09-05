@@ -45,9 +45,6 @@
     .title {
         display: none;
     }
-    nav div {
-        margin-left: auto;
-    }
 }
 
 .UpperNavFlex {
@@ -56,9 +53,6 @@
 }
 
 @media screen and (max-width:620px) {
-    .alignHeading {
-        padding-left: 0.5rem;
-    }
     .homeIcon {
         font-size: 1rem !important;
     }
