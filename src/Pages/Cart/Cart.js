@@ -7,6 +7,7 @@ import { useHistory } from 'react-router-dom';
 import './Cart.css';
 import CartItem from './CartItem/CartItem';
 import { ToastsStore } from 'react-toasts';
+import { auth } from '../../Firebase/utils'
 
 const mapState = createStructuredSelector({
   cartItems: selectCartItem,
@@ -14,6 +15,7 @@ const mapState = createStructuredSelector({
 });
 
 const Cart = ({ }) => {
+  const userId = auth.currentUser?.uid;
   const { cartItems, total } = useSelector(mapState);
   const history = useHistory();
 
@@ -35,9 +37,10 @@ const Cart = ({ }) => {
               </thead>
               <tbody>
                 {cartItems.map((item, index) => {
-                  return (
-                    <CartItem {...item} />
-                  )
+                  if(item.userID === userId){
+                    return (
+                      <CartItem {...item} />
+                    )}
                 })}
               </tbody>
             </table>
@@ -58,7 +61,6 @@ const Cart = ({ }) => {
         : <div className="emptyCart" ><img className="emptyCart" src='/images/emptyCart.png' />
           {ToastsStore.warning("Your Cart is Empty")}
         </div>}
-      {/* // <Checkout/> */}
     </div>
   )
 }

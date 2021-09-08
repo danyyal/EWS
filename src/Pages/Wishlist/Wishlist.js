@@ -7,12 +7,14 @@ import WishItem from './WishItem/WishItem';
 import { useHistory } from 'react-router';
 import { ToastsStore } from 'react-toasts'
 import './Wishlist.css'
+import { auth } from '../../Firebase/utils'
 
 const mapState = createStructuredSelector({
   wishItems: selectWishItem,
 });
 
 const Wishlist = ({ }) => {
+  const userId = auth.currentUser?.uid;
   const { wishItems } = useSelector(mapState);
   const history = useHistory();
   return (
@@ -33,9 +35,10 @@ const Wishlist = ({ }) => {
               </thead>
               <tbody>
               {wishItems.map((item, index) => {
-                return (
-                  <WishItem {...item} />
-                )
+                if(item.userID === userId){
+                  return (
+                    <WishItem {...item} />
+                  )}
               })}
               </tbody>
             </table>

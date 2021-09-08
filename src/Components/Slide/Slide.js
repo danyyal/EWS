@@ -7,8 +7,8 @@ import './Slide.css';
 
 const Slide = () => {
   return (
-    <>
-      <Carousel autoPlay={true} dynamicHeight={true} infiniteLoop={true} interval={3000} >
+    <> 
+      <Carousel autoPlay={true} dynamicHeight={true} infiniteLoop={true} interval={3000} showThumbs={false}>
         <div className="flexingslider">
           <div className='sliderText'>
             <div className="sliderTextInner">
