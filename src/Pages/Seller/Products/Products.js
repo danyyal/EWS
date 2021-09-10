@@ -12,6 +12,7 @@ import { categories } from '../Categories';
 import FormSelect from '../../../Components/FormSelect/FormSelect';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
+import ConfirmationModal from '../../../Components/ConfirmationModal/ConfirmationModal'
 
 const mapState = ({ productsData }) => ({
   products: productsData.products
@@ -29,6 +30,8 @@ const Products = () => {
   const [documentID, setdocumentID] = useState('');
   const { products } = useSelector(mapState);
   const dispatch = useDispatch();
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
+  const [deleteDocumentID, setDeleteDocumentID]= useState(null);
   const { data, queryDoc, isLastPage } = products;
 
 
@@ -101,9 +104,12 @@ const Products = () => {
     setdocumentID(documentID);
   }
 
-
+  const handleDelete = () =>{
+    dispatch(deleteProductStart(deleteDocumentID))
+  }
   return (
     <div className="sellerProductContainer">
+      {showConfirmationModal && <ConfirmationModal onClick={()=>handleDelete()} showModal={showConfirmationModal} onRequestClose={()=>setShowConfirmationModal(false)} title="Delete Product" text="Are you sure you want to Delete Product?" />}
       <SellerDesign heading={'Manage Products'} />
       <Grid container className='results' >
 
@@ -128,7 +134,10 @@ const Products = () => {
                 <Tooltip title='Delete'>
                   < DeleteIcon
                     className='sellerProductIcons'
-                    onClick={() => dispatch(deleteProductStart(documentID))}
+                    onClick={() => {
+                      setDeleteDocumentID(documentID)
+                      setShowConfirmationModal(true)
+                      }}
                   />
                 </Tooltip>
               </Grid>

@@ -9,7 +9,7 @@ import Review from './Review';
 import AuthWrapper from '../AuthWrapper/AuthWrapper';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Checkout.css'
-
+import ConfirmationModal from '../ConfirmationModal/ConfirmationModal'
 
 
 const mapState = createStructuredSelector({
@@ -42,6 +42,7 @@ const Checkout = () => {
   const history = useHistory();
   const { itemCount, total, cartItems } = useSelector(mapState);
   const [shippingAddress, setshippingAddress] = useState({ ...InitialState });
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   const handleOnChange = evt => {
     const { name, value } = evt.target;
@@ -51,8 +52,7 @@ const Checkout = () => {
     })
   }
 
-  const handleSubmit = async evt => {
-    evt.preventDefault();
+  const handleSubmit = async => {
     const configOrderHistory = {
       orderTotal: total,
       orderItems: cartItems.map(item => {
@@ -85,11 +85,11 @@ const Checkout = () => {
 
   return (
     <div className="checkoutBackground">
-      {/* <CssBaseline /> */}
+      {showConfirmationModal && <ConfirmationModal onClick={()=>handleSubmit()} showModal={showConfirmationModal} onRequestClose={()=>setShowConfirmationModal(false)} title="Place Order?" text="Are you sure you want to Place Order?" />}
       <AuthWrapper {...configAuthWrapper} >
         <Typography className="checkouHeading" align='left' variant="h6" gutterBottom>Shipping address</Typography>
         <Paper className='paper' elevation={0}>
-          <form className="checkoutForm" onSubmit={handleSubmit}>
+          <form className="checkoutForm">
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6}>
                 <TextField
@@ -184,7 +184,7 @@ const Checkout = () => {
               <Grid item><Review/></Grid>
             </Grid>
 
-            <Button type='submit' className='placeOrderBtn' >Place order</Button>
+            <Button onClick={()=> setShowConfirmationModal(true) } className='placeOrderBtn' >Place order</Button>
           </form>
         </Paper>
       </AuthWrapper>

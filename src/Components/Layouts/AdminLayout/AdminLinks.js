@@ -6,6 +6,7 @@ import { signOutUserStart, signUpUserStart } from '../../../Redux/User/user.acti
 import { Grid, Typography, Button, TextField, Checkbox } from '@material-ui/core';
 import AuthWrapper from '../../AuthWrapper/AuthWrapper'
 import AddUserModal from './AddUserModal'
+import ConfirmationModal from '../../ConfirmationModal/ConfirmationModal'
 import './AdminLayout.css'
 
 const mapState = ({ user }) => ({
@@ -24,6 +25,7 @@ const AdminLinks = ({displayer="none"}) => {
   const [confirmationPassword, setConfirmPassword] = useState('');
   const [errors, setError] = useState([]);
   const [mailError, setMailError] = useState('');
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const toggleModal = () => setHideModal(!hideModal);
 
   useEffect(() => {
@@ -89,6 +91,7 @@ const AdminLinks = ({displayer="none"}) => {
   const history = useHistory();
   return (
     <ul className={displayer}>
+      {showConfirmationModal && <ConfirmationModal onClick={()=>signOut()} showModal={showConfirmationModal} onRequestClose={()=>setShowConfirmationModal(false)} title="Sign out?" text="Are you sure you want to sign out?" />}
       <li >
         <Button className='adminButtons liBorder' onClick={() => history.push('/')}>
           Home
@@ -129,7 +132,7 @@ const AdminLinks = ({displayer="none"}) => {
       </li>
 
       <li>
-        <Button className='adminButtons liBorder' onClick={() => signOut()}>
+        <Button className='adminButtons liBorder' onClick={() => setShowConfirmationModal(true)}>
           SignOut
         </Button>
       </li>

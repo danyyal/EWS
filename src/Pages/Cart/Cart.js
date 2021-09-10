@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectCartItem, selectCartTotal } from '../../Redux/Cart/cart.selector';
 import { createStructuredSelector } from 'reselect';
@@ -8,7 +8,7 @@ import './Cart.css';
 import CartItem from './CartItem/CartItem';
 import { ToastsStore } from 'react-toasts';
 import { auth } from '../../Firebase/utils'
-
+import ConfirmationModal from '../../Components/ConfirmationModal/ConfirmationModal'
 const mapState = createStructuredSelector({
   cartItems: selectCartItem,
   total: selectCartTotal
@@ -17,10 +17,14 @@ const mapState = createStructuredSelector({
 const Cart = ({ }) => {
   const userId = auth.currentUser?.uid;
   const { cartItems, total } = useSelector(mapState);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
   const history = useHistory();
-
+  const handleCheckout =() =>{
+    history.push('/Checkout')
+  }
   return (
     <div className='AlignAbout userSelect'>
+      {showConfirmationModal && <ConfirmationModal onClick={() => handleCheckout()} showModal={showConfirmationModal} onRequestClose={() => setShowConfirmationModal(false)} title="Are you sure?" text="Are you sure you want to Checkout?" />}
       <h1 className="cartHeader">My Cart</h1>
       {cartItems.length > 0 ?
         <Grid container col={12} justify='space-around' alignItems='center'>
@@ -37,10 +41,11 @@ const Cart = ({ }) => {
               </thead>
               <tbody>
                 {cartItems.map((item, index) => {
-                  if(item.userID === userId){
+                  if (item.userID === userId) {
                     return (
                       <CartItem {...item} />
-                    )}
+                    )
+                  }
                 })}
               </tbody>
             </table>
@@ -53,7 +58,9 @@ const Cart = ({ }) => {
               </Button>
             </Grid>
             <Grid item>
-              <Button className='cartBtn' onClick={() => history.push('/Checkout')}>Checkout</Button>
+              <Button className='cartBtn' onClick={() => {
+                setShowConfirmationModal(true)
+              }}>Checkout</Button>
 
             </Grid>
           </Grid>
