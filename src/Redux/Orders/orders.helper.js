@@ -8,7 +8,13 @@ export const handleSaveOrderHistory = order => {
     })
 }
 
-
+//added now
+export const handleOrderUpdate = payload => {
+    return new Promise((resolve, reject) => {
+        firestore.collection('orders').doc(payload).update('isCancelled', true).then(() => {  resolve()})
+        .catch(err => { reject(err) });
+    })
+}
 export const handleGetOrderHistory = uid => {
     return new Promise((resolve, reject) => {
         let ref = firestore.collection('orders').orderBy('orderCreatedDate');

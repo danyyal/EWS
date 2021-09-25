@@ -1,6 +1,6 @@
 import orderTypes from "./orders.types";
 import { takeLatest, put, all, call } from 'redux-saga/effects';
-import { handleSaveOrderHistory, handleGetOrderHistory, handleGetOrderDetail, handleGetSellerOrderHistory } from './orders.helper';
+import { handleSaveOrderHistory, handleGetOrderHistory, handleGetOrderDetail, handleGetSellerOrderHistory, handleOrderUpdate } from './orders.helper';
 import { clearCart } from '../../Redux/Cart/cart.actions'
 import { auth } from "../../Firebase/utils";
 import { setUserOrderHistory, setOrderDetail, setSellerOrderHistory } from "./orders.actions";
@@ -66,6 +66,21 @@ export function* onGetOrderDetailStart() {
 
 
 
+//added now
+export function* updateOrder({ payload }) {
+    try {
+        yield handleOrderUpdate(payload);
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+//added now
+export function* onHandleOrderUpdate (){
+    yield takeLatest(orderTypes.UPDATE_ORDER, updateOrder);
+}
+
+
 
 
 export default function* orderSaga() {
@@ -74,5 +89,6 @@ export default function* orderSaga() {
         call(onGetUserOrderHistoryStart),
         call(onGetOrderDetailStart),
         call(onGetSellerOrderHistory),
+        call(onHandleOrderUpdate),//added now
     ])
 }

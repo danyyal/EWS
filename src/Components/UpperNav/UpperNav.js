@@ -8,7 +8,6 @@ import { signOutUserStart } from '../../Redux/User/user.actions';
 import { CheckUserIsSeller, CheckUserIsAdmin } from '../../Utils/Utils';
 import { selectCartItemsCount } from '../../Redux/Cart/cart.selector';
 import { selectWishItemsCount } from '../../Redux/Wishlist/wish.selector';
-import HomeIcon from '@material-ui/icons/Home';
 import Dropdown from '../Dropdown/Dropdown'
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal'
 
@@ -35,9 +34,6 @@ const UpperNav = (props) => {
         <Dropdown className="upperDropdown" dropdownItems={dropdownItems} />
         <nav className='alignSpace'>
           <div className="alignHeading">
-            <HomeIcon
-              className="homeIcon"
-              onClick={() => history.push('/')} />
             <Typography variant="h6" className='title'>
               <Link to='/' className='linkStyle'>Welcome to EWS</Link>
             </Typography>

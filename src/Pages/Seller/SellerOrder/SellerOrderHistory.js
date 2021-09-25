@@ -28,9 +28,9 @@ const columns = [
 const formating = (columnName, columnValue) => {
   switch (columnName) {
     case 'orderTotal':
-      return `RS.${columnValue}`
+      return `RS.${Math.round(columnValue *100)/100}`
     case 'orderCreatedDate':
-      return moment(columnValue.nano).format('DD/MM/YYYY');
+      return moment(new Date(columnValue.seconds * 1000)).format('DD/MM/YYYY hh:mm A');
     case 'cancel':
       return <span><Checkbox />Cancel</span>
     default:
@@ -69,9 +69,15 @@ const seller = true;
                     const columnName = column.id;
                     const columnValue = order[columnName];
                     const textFormating = formating(columnName, columnValue);
-                    return (
-                      <TableCell key={index} className='headCell' >{textFormating}</TableCell>
-                    )
+                    if(column.id === 'cancel'){
+                      return (
+                      <TableCell key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)}  className='headCell' >{textFormating}</TableCell>
+                    )}
+                    else{
+                      return (
+                        <TableCell key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)}  className='headCell' >{textFormating}</TableCell>
+                    )}
+
                   })
                   }
                 </TableRow>

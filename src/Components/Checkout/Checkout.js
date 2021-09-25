@@ -10,6 +10,7 @@ import AuthWrapper from '../AuthWrapper/AuthWrapper';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Checkout.css'
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal'
+import { ToastsStore } from 'react-toasts';
 
 
 const mapState = createStructuredSelector({
@@ -51,9 +52,13 @@ const Checkout = () => {
       [name]: value
     })
   }
-
+  const allEqual = arr => arr.every( v => v === arr[0] )
   const handleSubmit = async => {
+    let sellerUID = [];
+    sellerUID = cartItems.map(item=>item.productSellerUID);
+    if(allEqual(sellerUID)){
     const configOrderHistory = {
+      isCancelled: 'false',
       orderTotal: total,
       orderItems: cartItems.map(item => {
         const { documentID, 
@@ -77,6 +82,10 @@ const Checkout = () => {
     }
     dispatch(saveOrderHistory(configOrderHistory));
   }
+  else {
+    ToastsStore.warning("You cannot place an order to multiple seller's at a time")
+  }
+}
   useEffect(() => {
     if (itemCount < 1) {
       history.push('/Dashboard');

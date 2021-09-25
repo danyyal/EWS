@@ -17,17 +17,6 @@
     padding-left: 1.5rem;
 }
 
-.homeIcon {
-    color: rgba(1, 233, 152, 0.78);
-    font-size: 1.5rem !important;
-}
-
-.homeIcon:hover {
-    cursor: pointer;
-    transition: 2s all;
-    color: rgb(5, 234, 250);
-}
-
 .log {
     color: white !important;
 }
@@ -61,7 +50,7 @@
     }
 }
 
-@media screen and (max-width:500px) {
+@media screen and (max-width:767px) {
     .alignSpace {
         display: none;
     }

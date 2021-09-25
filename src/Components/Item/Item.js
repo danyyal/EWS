@@ -53,12 +53,12 @@ const Item = (product) => {
           <CardContent className='cardName'>
             <Typography gutterBottom variant="h6" component="h2">
               <Link className='cardLink' to={`/Product/${documentID}`} >
-                <span className='IFont'>Name</span> {productName.length > 15 ? productName.slice(0 , 7) + "....." : productName}
+                <span className='IFont'>Name</span> {productName.length > 10 ? productName.slice(0 , 5) + "..." : productName}
               </Link>
             </Typography>
             <Typography variant="body2" variant="h6" component="h2">
               <Link to={`/Product/${documentID}`} className='cardLink' >
-                <span className='IFont'>RS.</span>  {productPrice}
+                <span className='IFont'>RS.</span>{Math.round(productPrice * 100) / 100}
               </Link>
             </Typography>
           </CardContent>

@@ -34,3 +34,8 @@ export const setSellerOrderHistory = history => ({
     type: orderTypes.SET_SELLER_ORDER_HISTORY,
     payload: history
 })
+//added now
+export const updateOrder = orderId => ({
+    type:orderTypes.UPDATE_ORDER,
+    payload: orderId
+})

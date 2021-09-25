@@ -3,6 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
@@ -84,10 +86,11 @@ export default function Dropdown({ dropdownItems }) {
           width: "50px",
           backgroundSize: "cover"
         }} src={`${picture? picture : '/images/user.png'}`}  />}
-        <HomeIcon
-          fontSize="medium"
-          onClick={() => history.push('/')} />
-
+        <div className="mobileHeading">
+          <Typography variant="h6" className='mobileTitle'>
+            <Link to='/' className='linkStyle'>Welcome to EWS</Link>
+          </Typography>
+        </div>
       </div>
       <Button
         className="dropDownButton"

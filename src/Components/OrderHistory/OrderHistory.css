@@ -6,6 +6,17 @@
     text-align: center !important;
 }
 
+.cancelButton {
+    background-color: crimson!important;
+    width: 9rem;
+    color: white !important;
+}
+
+.cancelButton:hover {
+    background-color: rgb(230, 59, 93)!important;
+    transition: 0.2s ease-in-out !important;
+}
+
 .historyContainer {
     background-color: rgb(245, 230, 164) !important;
 }
