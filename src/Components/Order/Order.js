@@ -22,12 +22,16 @@ const columns = [
   {
     id: 'quantity',
     value: 'Quantity'
+  },
+  {
+    id: 'totalPrice',
+    value: 'Total'
   }
 ]
 const formating = (columnName, columnValue) => {
   switch (columnName) {
     case 'productPrice':
-      return `RS.${columnValue}`
+      return `RS.${Math.round(parseInt(columnValue))}`
     case 'productThumbnail':
       return <img src={columnValue} className='thumb' />;
     default:
@@ -47,8 +51,7 @@ const Order = ({ order, seller, userId }) => {
 
   let mappedArray = orderItem;
   if(seller == "true") mappedArray = sellerOrders
-  console.log(order)
-  console.log(mappedArray)
+
   const dispatch = useDispatch();
   useEffect(() => {
 
@@ -79,6 +82,8 @@ const Order = ({ order, seller, userId }) => {
                 return (
                   <TableRow className="orderDetail" key={index}>
                     {columns.map((column, index) => {
+                      if(column.id === 'totalPrice')
+                        return <TableCell key={index} className='headCell'>{parseInt(order.productPrice) * parseInt(order.quantity)}</TableCell>
                       const columnName = column.id;
                       const columnValue = order[columnName];
                       const textFormating = formating(columnName, columnValue);

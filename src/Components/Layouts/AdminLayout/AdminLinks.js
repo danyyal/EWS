@@ -8,6 +8,7 @@ import AuthWrapper from '../../AuthWrapper/AuthWrapper'
 import AddUserModal from './AddUserModal'
 import ConfirmationModal from '../../ConfirmationModal/ConfirmationModal'
 import './AdminLayout.css'
+import * as fs from 'fs';
 
 const mapState = ({ user }) => ({
   currentUser: user.currentUser,
@@ -58,6 +59,101 @@ const AdminLinks = ({displayer="none"}) => {
     document.getElementById("sellerCheck").checked=false;
   }
 
+  // function getCategory(value) {
+  //   switch (value) {
+  //     case 'Automobiles & Motorcycles':
+  //       return "automobilesandmotorcycle"
+  
+  //     case 'Luggage & Bags':
+  //       return "bags"
+
+  //     case 'Computer & Office':
+  //       return "computerandofficeappliances"
+  
+  //     case 'Beauty & Health':
+  //       return "healthandbeauty"
+  
+  //     case 'Home & Garden':
+  //       return "homeandgarden"
+  
+  //     case 'Home Improvement':
+  //       return "homeimprovements"
+  
+  //     case 'Pet Products':
+  //       return "petproducts"
+  
+  //     case 'Mother & Kids':
+  //       return "motherandchildcare"
+  
+  //     case "Men's Clothing":
+  //       return "menscloth"
+  
+  //     case 'Mobile Phone Cables':
+  //       return "phonecables"
+  
+  //     case 'Cellphones':
+  //       return "phones"
+  
+  //     case 'Mobile Phone Accessories':
+  //       return "phonesaccessories"
+  
+  //     case 'Security & Protection':
+  //       return "securityproducts"
+  
+  //     case 'Refurbished Phones':
+  //       return "refurbishedphones"
+  
+  //     case 'Cellphones & Telecommunications':
+  //       return "phonesandcommunicationdevices"
+  
+  //     case 'Shoes':
+  //       return "shoes"
+  
+  //     case 'Sports & Entertainment':
+  //       return "sportsandentertainment"
+  
+  //     case 'Tools':
+  //       return "tools"
+  
+  //     case 'Toys & Hobbies':
+  //       return "toys"
+  
+  //     case 'Watches':
+  //       return "watches"
+  
+  //     case "Women's Clothing":
+  //       return "womencloth"
+  
+  //     case 'Jewelry & Accessories':
+  //       return "womenjewellery"
+  
+  //     default:
+  //       return "others"
+  //   }
+  
+  // }
+  
+  // function readTextFile() {
+  //   let json = require('./AllData.json')
+  //   let a = 0;
+  //   let price = [];
+  //   let structuredPrices = [];
+  //   let categoryName= '';
+  //   json.map(category => {
+  //     price = [];
+  //     a = 0;
+  //     category.map(page => {
+  //       categoryName = getCategory(page.breadCrumb.keywords)
+  //       page.mods.itemList.content.map((item) => {
+  //         price[a] = item?.prices?.salePrice?.minPrice;
+  //         a++;
+  //       })
+
+  //     })
+  //     structuredPrices.push( { categoryName : categoryName, categoryPrice : price } ) ;
+  //   })
+  //   console.log(structuredPrices)
+  // }
 
   const handleFormSubmit = event => {
 
@@ -130,6 +226,13 @@ const AdminLinks = ({displayer="none"}) => {
           Report
         </Button>
       </li>
+
+      {/* <li>
+        <Button className='adminButtons liBorder' onClick={() => readTextFile()
+          }>
+          Get Prices
+        </Button>
+      </li> */}
 
       <li>
         <Button className='adminButtons liBorder' onClick={() => setShowConfirmationModal(true)}>

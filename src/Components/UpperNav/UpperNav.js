@@ -53,7 +53,7 @@ const UpperNav = (props) => {
                 }
 
                 <Button ><Link to='/Dashboard' className='linkStyle'>My Account</Link></Button>
-                <Button onClick={() => setShowConfirmationModal(true)} className='log'><Link to='/' className='linkStyle'>LogOut</Link></Button>
+                <Button onClick={() => setShowConfirmationModal(true)} className='log'><Link className='linkStyle'>LogOut</Link></Button>
               </>
             }
             {!currentUser && (

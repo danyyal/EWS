@@ -1,5 +1,5 @@
 import { firestore } from '../../Firebase/utils';
-
+import { ToastsStore } from 'react-toasts'
 export const handleSaveOrderHistory = order => {
     return new Promise((resolve, reject) => {
         firestore.collection('orders').doc().set(order)
@@ -11,7 +11,9 @@ export const handleSaveOrderHistory = order => {
 //added now
 export const handleOrderUpdate = payload => {
     return new Promise((resolve, reject) => {
-        firestore.collection('orders').doc(payload).update('isCancelled', true).then(() => {  resolve()})
+        firestore.collection('orders').doc(payload).update('isCancelled', true).then(() => {  
+            ToastsStore.success("Order cancelled Successfully.")
+            resolve()})
         .catch(err => { reject(err) });
     })
 }

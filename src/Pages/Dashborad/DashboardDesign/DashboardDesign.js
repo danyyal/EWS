@@ -62,6 +62,13 @@ const DashboardDesign = () => {
               Order History
             </Button>
           </Grid>
+
+          <Grid item md={4} xs={12}>
+            <Button className="dashboardProductButton" onClick={() => { history.push('/CancelledOrders') }} >
+              Orders Cancelled
+            </Button>
+          </Grid>
+
           <Grid item md={4} xs={12}>
             <Button className="dashboardProductButton" onClick={() => handleUpdation()} >
               Manage profile

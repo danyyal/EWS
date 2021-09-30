@@ -58,7 +58,7 @@ const Checkout = () => {
     sellerUID = cartItems.map(item=>item.productSellerUID);
     if(allEqual(sellerUID)){
     const configOrderHistory = {
-      isCancelled: 'false',
+      isCancelled: false,
       orderTotal: total,
       orderItems: cartItems.map(item => {
         const { documentID, 

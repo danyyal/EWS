@@ -4,9 +4,9 @@ import moment from 'moment';
 import { useHistory } from 'react-router';
 import {useDispatch} from 'react-redux';
 import {ToastsStore} from 'react-toasts'
+import { addDays} from 'date-fns'
 import './OrderHistory.css';
-import { handleOrderUpdate } from '../../Redux/Orders/orders.helper';
-
+import { updateOrder } from '../../Redux/Orders/orders.actions'
 const columns = [
   {
     id: 'orderCreatedDate',
@@ -27,6 +27,23 @@ const columns = [
 
 ]
 
+
+const cancelledOrderColumns = [
+  {
+    id: 'orderCreatedDate',
+    value: 'Order Date'
+  },
+  {
+    id: 'documentID',
+    value: 'Order ID'
+  },
+  {
+    id: 'orderTotal',
+    value: 'Total Amount'
+  }
+
+]
+
 const formating = (columnName, columnValue) => {
   switch (columnName) {
     case 'orderTotal':
@@ -40,12 +57,20 @@ const formating = (columnName, columnValue) => {
   }
 }
 
-const OrderHistory = ({ order }) => {
+const OrderHistory = ({ cancelledOrders, order }) => {
   const seller = false;
   const history = useHistory();
   const dispatch =useDispatch();
-  const cancelOrder = ( documentID) =>{
-      dispatch(handleOrderUpdate(documentID,'true'));//added now
+  const cancelOrder = ( order ) =>{
+    const cancellationDeadline = addDays(new Date(order.orderCreatedDate.seconds * 1000), 8)
+    const today = new Date();
+    if(cancellationDeadline < today){
+      ToastsStore.error("Cannot cancel order now. Please contact us in case of any query");
+      return
+    }
+    else{
+      dispatch(updateOrder(order.documentID));//added now
+    }
   }
   return (
       <TableContainer component={Paper} className="historyContainer" >
@@ -54,6 +79,7 @@ const OrderHistory = ({ order }) => {
             <TableRow>
               {columns.map((column, index) => {
                 const { value } = column;
+                if(cancelledOrders && column.id === 'cancel') return null
                 return (
                   <TableCell className='headCell'>{value}</TableCell>
                 )
@@ -63,30 +89,47 @@ const OrderHistory = ({ order }) => {
           </TableHead>
           <TableBody>
             {(Array.isArray(order) && order.length > 0) && order.map((order, index) => {
-              if(order.isCancelled) return null;
               const { documentID } = order;
+              if(cancelledOrders){
+                if(order.isCancelled === false) return null;
               return (
                 <TableRow key={index} >
-                  {columns.map((column, index) => {
+                  {cancelledOrderColumns.map((column, index) => {
                     const columnName = column.id;
                     const columnValue = order[columnName];
                     const textFormating = formating(columnName, columnValue);
-                    if(column.id ==='cancel'){
-                      return (
-                      <TableCell key={index} className='headCell' >
-                        <Button className="cancelButton" onClick={() => cancelOrder(documentID)}>
-                          {textFormating}
-                        </Button>
-                      </TableCell>
-                    )}
-                    else{
-                      return (
+                    return (
                         <TableCell key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)} className='headCell' >{textFormating}</TableCell>
-                    )}
+                    )
                   })
                   }
                 </TableRow>
-              )
+              )}else{
+                if(order.isCancelled === true) return null;
+                return (
+                  <TableRow key={index} >
+                    {columns.map((column, index) => {
+                      const columnName = column.id;
+                      const columnValue = order[columnName];
+                      const textFormating = formating(columnName, columnValue);
+                      if(column.id ==='cancel'){
+                        return (
+                        <TableCell key={index} className='headCell' >
+                          <Button className="cancelButton" onClick={() => cancelOrder(order)}>
+                            {textFormating}
+                          </Button>
+                        </TableCell>
+                      )}
+                      else{
+                        return (
+                          <TableCell key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)} className='headCell' >{textFormating}</TableCell>
+                      )}
+                    })
+                    }
+                  </TableRow>
+                )
+              }
+              
             })}
           </TableBody>
         </Table>

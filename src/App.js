@@ -16,6 +16,7 @@ import ContactUs from "./Pages/ContactUs/ContactUs";
 import AboutUs from './Pages/AboutUs/AboutUs';
 import ForgotPassword from './Pages/ForgotPassword/ForgotPassword';
 import Dashboard from './Pages/Dashborad/Dashboard';
+import CancelledOrders from './Pages/Dashborad/CancelledOrders/CancelledOrders';
 import SellerOrder from './Pages/Seller/SellerOrder/SellerOrder';
 import ProductDescription from './Pages/ProductDescription/ProductDescription';
 import Cart from './Pages/Cart/Cart';
@@ -192,6 +193,15 @@ const App = props => {
             </DashBoardLayout>
           </WithAuth>
         )} />
+
+        <Route path='/CancelledOrders' render={() => (
+          <WithAuth>
+            <DashBoardLayout>
+              <CancelledOrders />
+            </DashBoardLayout>
+          </WithAuth>
+        )} />
+        
 
         <Route path='/ReturnOrder' render={() => (
           <WithAuth>
