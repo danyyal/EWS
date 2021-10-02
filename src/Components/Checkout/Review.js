@@ -9,7 +9,7 @@ const mapState = createStructuredSelector({
   cartItems: selectCartItem,
   total: selectCartTotal
 });
-function getDeliveryCharges(cartItems) {
+export const getDeliveryCharges=(cartItems)=> {
   let charges = 0;
   cartItems.map((item) => {
     charges = charges + item.quantity;

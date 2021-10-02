@@ -19,7 +19,7 @@ const CancelledOrders = () => {
   return (
     <div className="dashboardSetting">
       <DashboardDesign/>
-      <h1 className="historyHeading">Returned Orders History</h1>
+      <h1 className="historyHeading">Cancelled Orders History</h1>
       <div>
         <div className='all'>
           <OrderHistory cancelledOrders={true} order={orderHistory}/>

@@ -30,7 +30,6 @@ export const handleGetOrderHistory = uid => {
                         }
                     })
                 ]
-            
                 resolve({ data })
             })
             .catch(err => { reject(err) });

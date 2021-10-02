@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { CssBaseline, Paper, Button, Grid, TextField, Typography } from '@material-ui/core';
+import React, {useState, useEffect } from 'react';
+import {Paper, Button, Grid, TextField, Typography } from '@material-ui/core';
 import { selectCartItemsCount, selectCartTotal, selectCartItem } from '../../Redux/Cart/cart.selector'
 import { saveOrderHistory } from '../../Redux/Orders/orders.actions'
 import { createStructuredSelector } from 'reselect'
@@ -11,6 +11,7 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './Checkout.css'
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal'
 import { ToastsStore } from 'react-toasts';
+import {getDeliveryCharges} from './Review';
 
 
 const mapState = createStructuredSelector({
@@ -60,6 +61,8 @@ const Checkout = () => {
     const configOrderHistory = {
       isCancelled: false,
       orderTotal: total,
+      shippingTotal:getDeliveryCharges(cartItems),
+      Status: 'Pending',
       orderItems: cartItems.map(item => {
         const { documentID, 
                productThumbnail,

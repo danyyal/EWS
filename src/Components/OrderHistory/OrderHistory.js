@@ -99,7 +99,7 @@ const OrderHistory = ({ cancelledOrders, order }) => {
                     const columnValue = order[columnName];
                     const textFormating = formating(columnName, columnValue);
                     return (
-                        <TableCell key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)} className='headCell' >{textFormating}</TableCell>
+                      <TableCell key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)} className='headCell' >{textFormating}</TableCell>
                     )
                   })
                   }

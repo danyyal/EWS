@@ -38,4 +38,4 @@ export const setSellerOrderHistory = history => ({
 export const updateOrder = orderId => ({
     type:orderTypes.UPDATE_ORDER,
     payload: orderId
-})
+});

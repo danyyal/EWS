@@ -3,7 +3,7 @@ import { takeLatest, put, all, call } from 'redux-saga/effects';
 import { handleSaveOrderHistory, handleGetOrderHistory, handleGetOrderDetail, handleGetSellerOrderHistory, handleOrderUpdate } from './orders.helper';
 import { clearCart } from '../../Redux/Cart/cart.actions'
 import { auth } from "../../Firebase/utils";
-import { setUserOrderHistory, setOrderDetail, setSellerOrderHistory } from "./orders.actions";
+import { setUserOrderHistory, setOrderDetail, setSellerOrderHistory, getUserOrderHistory} from "./orders.actions";
 
 
 export function* getOrderHistory({ payload }) {
@@ -53,8 +53,7 @@ export function* onSaveOrderHistory() {
 
 export function* getOrderDetail({ payload }) {
     try {
-        const order = yield handleGetOrderDetail(payload);
-        yield put(setOrderDetail(order));
+         yield handleGetOrderDetail(payload);
     } catch (err) {
         // console.log(err);
     }
@@ -69,7 +68,9 @@ export function* onGetOrderDetailStart() {
 //added now
 export function* updateOrder({ payload }) {
     try {
-        yield handleOrderUpdate(payload);
+      yield handleOrderUpdate(payload);
+    const history =  yield handleGetOrderHistory(auth.currentUser.uid);
+    yield put(setUserOrderHistory(history));
     } catch (err) {
         console.log(err);
     }
