@@ -211,7 +211,7 @@ const App = props => {
           </WithAuth>
         )} />
       </Switch>
-      <ToastsContainer store={ToastsStore} position={ToastsContainerPosition.BOTTOM_CENTER} />
+      <ToastsContainer store={ToastsStore} timer={4000} position={ToastsContainerPosition.BOTTOM_CENTER} />
     </div>
   );
 }

@@ -165,11 +165,20 @@ const AdminLinks = ({displayer="none"}) => {
       a = 0;
       category.map(page => {
         categoryName = getCategory(page.breadCrumb.keywords)
-        page.mods.itemList.content.map((item) => {
-          price[a] = item?.prices?.salePrice?.minPrice;
-          a++;
-        })
-
+        if(categoryName === 'refurbishedphones' || categoryName === 'automobilesandmotorcycle' || categoryName === 'phones'){
+          page.mods.itemList.content.map((item) => {
+            price[a] = item?.prices?.salePrice?.minPrice * 170;
+            a++;
+          })
+        } else{
+          page.mods.itemList.content.map((item) => {
+            if(item?.prices?.salePrice?.minPrice * 170 < 100000)
+              price[a] = item?.prices?.salePrice?.minPrice * 170;
+            else 
+              price[a]= 100000;
+            a++;
+          })
+        }
       })
       structuredPrices.push( { categoryName : categoryName, categoryPrice : price } ) ;
     })

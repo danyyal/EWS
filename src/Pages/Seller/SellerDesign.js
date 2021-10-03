@@ -3,8 +3,9 @@ import { useDispatch,useSelector } from 'react-redux';
 import { addProductStart } from '../../Redux/Products/Products.actions';
 import { Link, useHistory } from 'react-router-dom'
 import { Grid, Button, TextField,Typography } from '@material-ui/core';
+import { getPriceRanges } from '../../Redux/PriceRanges/PriceRanges.actions'
 import CKEditor from 'ckeditor4-react';
-
+import { ToastsStore } from 'react-toasts'
 // Componenets
 
 import FormSelect from '../../Components/FormSelect/FormSelect';
@@ -12,17 +13,34 @@ import Modal from '../../Components/Modal/Modal';
 
 import './SellerDesign.css';
 import { categories } from './Categories';
+const getCategoryRanges = (data, category)=>{
+  if(!data) return 'empty Array'
+  let latestTime = Math.max(...(data.data.map(priceObj => priceObj.timeOfCreation.seconds)))
+  let rangeObj;
+  data.data.map(priceObj => {
+    if(priceObj.timeOfCreation.seconds === latestTime) 
+      rangeObj = priceObj
+    })
+  let requiredRange ;
+  rangeObj.priceRanges.map(range => {
+    if(range.categoryName === category) 
+    requiredRange = range;
+  })
+  return requiredRange;
+}
 
 const mapState=(state)=>({
-  currentUser:state.user.currentUser
+  currentUser:state.user.currentUser,
+  priceData : state.priceData.ranges
 })
 
 const SellerDesign = ({ heading }) => {
+  const fileReader = new FileReader();
   const history = useHistory();
   const dispatch = useDispatch();
-  const {currentUser} = useSelector(mapState);
+  const {currentUser, priceData} = useSelector(mapState);
   const [hideModal, setHideModal] = useState(true);
-  const [productCategory, setProductCategory] = useState('men');
+  const [productCategory, setProductCategory] = useState('menscloth');
   const [productName, setProductName] = useState('');
   const [productThumbnail, setProductThumbnail] = useState('');
   const [productPrice, setProductPrice] = useState(0);
@@ -40,7 +58,7 @@ const SellerDesign = ({ heading }) => {
 
   const resetForm = () => {
     setHideModal(true);
-    setProductCategory('men');
+    setProductCategory('menscloth');
     setProductName('');
     setProductThumbnail('');
     setProductPrice(0);
@@ -50,8 +68,8 @@ const SellerDesign = ({ heading }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-
-    if (productPrice > 0) {
+    const range = getCategoryRanges( priceData, productCategory )
+    if ( productPrice >= range.categoryRange.min && productPrice <= range.categoryRange.max ) {
       dispatch(
         addProductStart({
           productCategory,
@@ -65,7 +83,9 @@ const SellerDesign = ({ heading }) => {
       );
       resetForm();
     }
-
+    else{
+      ToastsStore.warning(`Please select the price within the given Range. Min Range: PKR ${Math.round(range.categoryRange.min)}. Max Range: PKR ${Math.round(range.categoryRange.max)}`) 
+    }
   };
 
   const handleOrders = () => {
@@ -80,7 +100,10 @@ const SellerDesign = ({ heading }) => {
 
         <Grid className="sellerDesignButtonContainer" container spacing={2} >
           <Grid item md={4} xs={12}>
-            <Button className="dashboardProductButton" onClick={() => toggleModal()}>
+            <Button className="dashboardProductButton" onClick={() => {
+              dispatch(getPriceRanges())
+              toggleModal()}
+              }>
               Add new product
             </Button>
           </Grid>
@@ -120,19 +143,59 @@ const SellerDesign = ({ heading }) => {
               value={productName}
               onChange={e => setProductName(e.target.value)}
             />
+            <div className="profilePicture">
+              <label htmlFor="image">
+                <h3>Product Image</h3>
+                <div className="text-center align-middle" style={{
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center center",
+                  backgroundColor: "#f7f7f7",
+                  border: "1px solid #f7f7f7",
+                  display: "table-cell",
+                  borderRadius: "50%",
+                  height: "200px",
+                  width: "200px",
+                  backgroundSize: "cover",
+                  backgroundImage: `url( ${productThumbnail || ""})`
+                }}>
+                  <div style={{
+                    backgroundColor: "#f7f7f7",
+                    opacity: .6,
+                    position: "relative",
+                    top: "45%",
+                    display: "inline-block",
+                    padding: "8px",
+                    fontSize: "13px",
+                  }}>
+                    <div style={{
+                      cursor: "pointer"
+                    }}>
+                      Upload product image
+                        </div>
+                  </div>
+                </div>
+              </label>
+              <input type="file"
+                id="image"
+                name="image"
+                style={{ display: "none" }}
+                onChange={
+                  (event) => {
+                    const file = event.currentTarget.files[0]
+                    if (!file) return
+                    fileReader.readAsDataURL(event.currentTarget.files[0])
+                    fileReader.onload = function () {
+                      if (file.size < 1000000) setProductThumbnail(fileReader.result)
+                      else ToastsStore.error("File Size cannot be greater than 700kb")
+                    };
+                    fileReader.onerror = function (error) {
+                      console.log('image file Error: ', error);
+                    };
+                  }
+                }
+              />
+            </div>
 
-
-            <TextField
-              required
-              fullWidth
-              id='pic'
-              margin='normal'
-              label="Upload Product Picture "
-              type="url"
-              value={productThumbnail}
-              onChange={e => setProductThumbnail(e.target.value)}
-
-            />
 
             <TextField
               fullWidth

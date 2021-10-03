@@ -4,9 +4,9 @@ const initialState={
    ranges:[]
 }
 
-const priceRangesReducer=(state=initialState,action)=>{
+const priceRangesReducer=(state=initialState, action)=>{
 switch(action.type){
-    case PriceRangeTypes.SET_PRICE_RANGES:
+    case PriceRangeTypes.SET_RANGE:
         return{
             ...state,
             ranges:action.payload
