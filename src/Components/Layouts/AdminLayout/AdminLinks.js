@@ -221,7 +221,7 @@ const AdminLinks = ({displayer="none"}) => {
     <ul className={displayer}>
       {showConfirmationModal && <ConfirmationModal onClick={()=>signOut()} showModal={showConfirmationModal} onRequestClose={()=>setShowConfirmationModal(false)} title="Sign out?" text="Are you sure you want to sign out?" />}
       <li >
-        <Button className='adminButtons liBorder' onClick={() => history.push('/')}>
+        <Button className='adminButtons liBorder' onClick={() => history.push('/Admin')}>
           Home
         </Button>
       </li>
@@ -263,6 +263,12 @@ const AdminLinks = ({displayer="none"}) => {
         <Button className='adminButtons liBorder' onClick={() => readTextFile()
           }>
           Get Prices
+        </Button>
+      </li>
+
+       <li>
+        <Button className='adminButtons liBorder'  onClick={() => history.push('/Admin/Queries')}>
+          Queries
         </Button>
       </li>
 

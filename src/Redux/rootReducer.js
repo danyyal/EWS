@@ -5,6 +5,7 @@ import cartReducer from './Cart/cart.reducer';
 import wishlistReducer from './Wishlist/wishlist.reducer';
 import orderReducer from './Orders/orders.reducer';
 import priceRangesReducer from './PriceRanges/PriceRange.reducer';
+import contactReducer from './Contact/Contact.reducer';
 import {persistReducer} from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -14,7 +15,8 @@ export const rootReducer= combineReducers({
     cartData:cartReducer,
     wishlistData:wishlistReducer,
     orderData:orderReducer,
-    priceData:priceRangesReducer
+    priceData:priceRangesReducer,
+    contactData:contactReducer,
 });
 
 const configStorage = {

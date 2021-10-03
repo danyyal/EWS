@@ -29,6 +29,7 @@ import Admin from "./Pages/Admin/Admin";
 import Sellers from './Pages/Admin/Sellers/Sellers';
 import Buyers from "./Pages/Admin/Buyers/Buyers";
 import ReportGenerator from './Pages/ReportGenerator/ReportGenerator';
+import Queries from './Pages/Admin/Queries/Queries';
 // Layouts
 import MainLayout from './Components/Layouts/MainLayout/MainLayout';
 import HomeLayout from './Components/Layouts/HomeLayout/HomeLayout';
@@ -162,6 +163,14 @@ const App = props => {
           <WithAdminAuth>
             <AdminLayout>
               <Buyers />
+            </AdminLayout>
+          </WithAdminAuth>
+        )} />
+
+        <Route exact path='/Admin/Queries' render={() => (
+          <WithAdminAuth>
+            <AdminLayout>
+              <Queries />
             </AdminLayout>
           </WithAdminAuth>
         )} />
