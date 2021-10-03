@@ -14,6 +14,7 @@ import Modal from '../../Components/Modal/Modal';
 import './SellerDesign.css';
 import { categories } from './Categories';
 const getCategoryRanges = (data, category)=>{
+  if(category ==='others') return {categoryName : 'others', categoryRange : { 'min':100, 'max':100000, 'average' : 15000} }
   if(!data) return 'empty Array'
   let latestTime = Math.max(...(data.data.map(priceObj => priceObj.timeOfCreation.seconds)))
   let rangeObj;

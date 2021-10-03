@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { TableContainer, TableCell, Table, TableHead, TableBody, TableRow, Paper, Tooltip  } from '@material-ui/core';
 import moment from 'moment';
+import { auth } from '../../../Firebase/utils'
 import { useHistory } from 'react-router';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -63,6 +64,7 @@ const seller = true;
           <TableBody>
             {(Array.isArray(order) && order.length > 0) && order.map((order, index) => {
               const { documentID } = order;
+            if(order.sellerUID === auth.currentUser.uid){
               return (
                 <TableRow key={index} onClick={() => history.push(`/Order/${documentID}/${seller}`)} >
                   {columns.map((column, index) => {
@@ -80,8 +82,8 @@ const seller = true;
 
                   })
                   }
-                </TableRow>
-              )
+                </TableRow> 
+              )} else return null 
             })}
           </TableBody>
         </Table>

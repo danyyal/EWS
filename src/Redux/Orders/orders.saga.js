@@ -53,7 +53,8 @@ export function* onSaveOrderHistory() {
 
 export function* getOrderDetail({ payload }) {
     try {
-         yield handleGetOrderDetail(payload);
+        const order = yield handleGetOrderDetail(payload);
+        yield put(setOrderDetail(order));
     } catch (err) {
         // console.log(err);
     }

@@ -63,6 +63,8 @@ const Checkout = () => {
       orderTotal: total,
       shippingTotal:getDeliveryCharges(cartItems),
       Status: 'Pending',
+      sellerUID : sellerUID[0],
+      isReturned : false,
       orderItems: cartItems.map(item => {
         const { documentID, 
                productThumbnail,

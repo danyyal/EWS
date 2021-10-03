@@ -42,15 +42,6 @@ const formating = (columnName, columnValue) => {
 
 
 const Order = ({ order, seller, userId }) => {
-  let orderItem = order && order.orderItems;
-  const [sellerOrders, setSellerOrders] = useState([]);
-
-  useEffect(()=>{
-    setSellerOrders(orderItem?.filter(item => item.productSellerUID === userId))
-  },[userId,orderItem])
-
-  let mappedArray = orderItem;
-  if(seller == "true") mappedArray = sellerOrders
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -75,10 +66,10 @@ const Order = ({ order, seller, userId }) => {
               }
             </TableRow>
           </TableHead>
-          {(Array.isArray(mappedArray) && mappedArray.length > 0) && 
+          {(Array.isArray(order.orderItems) && order.orderItems.length > 0) && 
             <TableBody>
 
-              {mappedArray.map((order, index) => {
+              {order.orderItems.map((order, index) => {
                 return (
                   <TableRow className="orderDetail" key={index}>
                     {columns.map((column, index) => {
