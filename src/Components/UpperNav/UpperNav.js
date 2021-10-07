@@ -40,8 +40,8 @@ const UpperNav = (props) => {
           </div>
 
           <div className="UpperNavFlex">
-            <Button><Link className='linkStyle' to='/Cart'>Cart({totalCartItems})</Link></Button>
-            <Button><Link className='linkStyle' to='/Wishlist'>Wishlist({totalWishItems})</Link></Button>
+            <Button><Link className='linkStyle' to='/Cart'>Cart</Link></Button>
+            <Button><Link className='linkStyle' to='/Wishlist'>Wishlist</Link></Button>
             {currentUser &&
               <>
                 {isSeller &&

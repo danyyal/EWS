@@ -18,10 +18,6 @@ import './Header.css';
       href: "/Products",
     },
     {
-      label: "Rental Section",
-      href: "/Rental Section",
-    },
-    {
       label: "Contact Us",
       href: "/Contact Us",
     },

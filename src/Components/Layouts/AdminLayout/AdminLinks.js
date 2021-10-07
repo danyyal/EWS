@@ -154,38 +154,38 @@ const AdminLinks = ({displayer="none"}) => {
   })
    return ranges;
   }
-  function readTextFile() {
-    let json = require('./AllData.json')
-    let a = 0;
-    let price = [];
-    let structuredPrices = [];
-    let categoryName= '';
-    json.map(category => {
-      price = [];
-      a = 0;
-      category.map(page => {
-        categoryName = getCategory(page.breadCrumb.keywords)
-        if(categoryName === 'refurbishedphones' || categoryName === 'automobilesandmotorcycle' || categoryName === 'phones'){
-          page.mods.itemList.content.map((item) => {
-            price[a] = item?.prices?.salePrice?.minPrice * 170;
-            a++;
-          })
-        } else{
-          page.mods.itemList.content.map((item) => {
-            if(item?.prices?.salePrice?.minPrice * 170 < 100000)
-              price[a] = item?.prices?.salePrice?.minPrice * 170;
-            else 
-              price[a]= 100000;
-            a++;
-          })
-        }
-      })
-      structuredPrices.push( { categoryName : categoryName, categoryPrice : price } ) ;
-    })
-   const ranges = getRanges(structuredPrices);
+  // function readTextFile() {
+  //   let json = require('./AllData.json')
+  //   let a = 0;
+  //   let price = [];
+  //   let structuredPrices = [];
+  //   let categoryName= '';
+  //   json.map(category => {
+  //     price = [];
+  //     a = 0;
+  //     category.map(page => {
+  //       categoryName = getCategory(page.breadCrumb.keywords)
+  //       if(categoryName === 'refurbishedphones' || categoryName === 'automobilesandmotorcycle' || categoryName === 'phones'){
+  //         page.mods.itemList.content.map((item) => {
+  //           price[a] = item?.prices?.salePrice?.minPrice * 170;
+  //           a++;
+  //         })
+  //       } else{
+  //         page.mods.itemList.content.map((item) => {
+  //           if(item?.prices?.salePrice?.minPrice * 170 < 100000)
+  //             price[a] = item?.prices?.salePrice?.minPrice * 170;
+  //           else 
+  //             price[a]= 100000;
+  //           a++;
+  //         })
+  //       }
+  //     })
+  //     structuredPrices.push( { categoryName : categoryName, categoryPrice : price } ) ;
+  //   })
+  //  const ranges = getRanges(structuredPrices);
 
-   dispatch(setPriceRanges(ranges));
-  }
+  //  dispatch(setPriceRanges(ranges));
+  // }
 
   const handleFormSubmit = event => {
 
@@ -259,12 +259,12 @@ const AdminLinks = ({displayer="none"}) => {
         </Button>
       </li>
 
-      <li>
+      {/* <li>
         <Button className='adminButtons liBorder' onClick={() => readTextFile()
           }>
           Get Prices
         </Button>
-      </li>
+      </li> */}
 
        <li>
         <Button className='adminButtons liBorder'  onClick={() => history.push('/Admin/Queries')}>
